@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ctop" class="md-skip">
+        <a href="#installation" class="md-skip">
           Skip to content
         </a>
       
@@ -226,30 +226,71 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-services" class="md-nav__link">
+    Create your Services
+  </a>
+  
+    <nav class="md-nav" aria-label="Create your Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxys" class="md-nav__link">
+    Reverse Proxy's
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webserver" class="md-nav__link">
+    Webserver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    Databases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ctop" class="md-nav__link">
     ctop
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#docker-network-viewer" class="md-nav__link">
     Docker Network Viewer
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
-    Backup
-  </a>
-  
-    <nav class="md-nav" aria-label="Backup">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scheduled-backups" class="md-nav__link">
-    Scheduled Backups
+  <a href="#backup" class="md-nav__link">
+    Backup
   </a>
   
 </li>
@@ -544,30 +585,71 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-services" class="md-nav__link">
+    Create your Services
+  </a>
+  
+    <nav class="md-nav" aria-label="Create your Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxys" class="md-nav__link">
+    Reverse Proxy's
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webserver" class="md-nav__link">
+    Webserver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    Databases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ctop" class="md-nav__link">
     ctop
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#docker-network-viewer" class="md-nav__link">
     Docker Network Viewer
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
-    Backup
-  </a>
-  
-    <nav class="md-nav" aria-label="Backup">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scheduled-backups" class="md-nav__link">
-    Scheduled Backups
+  <a href="#backup" class="md-nav__link">
+    Backup
   </a>
   
 </li>
@@ -596,60 +678,87 @@
                 
                   <h1>Overview</h1>
                 
-                <p>Afterwards you can add your services to the <code>docker-compose.yml</code></p>
+                <p>This Admin Guide describes how I setup my servers using docker. </p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<p>I created a script which can be executed to setup the server.<br />
+I suggest you to get used to my structure (e.g. the stack logic), otherwise you might run into problems later on.<br />
+If you never used this guide, you should <a href="./installation/">perform the installation manually</a> to understand the structure.</p>
+<details>
+  <summary>Post Installation Script</summary>
+
+You can basicly skip most of the installation section, but there are some exceptions:  
+
+* You should create all user accounts, and setup public key authentication.  
+  You can add a list of users which should get the admin / sudo group in the configuration section of the script  
+
+* You should secure your SSH server (e.g. disallow authentication using passwords, root login, ...)
+
+* You may change your hostname (this is not required)  
+
+* You need to setup your DNS, consider to change the name servers to cloudflare if you have trouble with the dns challenge for wildcard certificate later on.
+
+</details>
+
+<h3 id="create-your-services">Create your Services<a class="headerlink" href="#create-your-services" title="Permanent link">&para;</a></h3>
+<p>After you successfully installed your system, you can add the services you need.<br />
+Before you add a new service think which stack what fit best. It might be useful to create a new stack.</p>
+<p>The following list contains a list of services that might come in handy. Simply add them to your <code>docker-compose.yml</code> and modify the required attributes (e.g. passwords, domain name, routing configuration, ...).</p>
+<p>You can find all services (e.g. Gameserver, Teamspeak, Sinusbot, ...) in the navigation bar on the left side of your page. </p>
+<h4 id="reverse-proxys">Reverse Proxy's<a class="headerlink" href="#reverse-proxys" title="Permanent link">&para;</a></h4>
+<p>A reverse proxy is a router which binds to the ports 80 (http) and 443 (https).<br />
+You can access the configured services by connecting to the proxy (https://domain.tld) with a specific host header, which is going to be evaluated by the proxy.<br />
+But how do you connect to your proxy with this specific host header? Due to the fact that you configured your dns to redirect all subdomains to your server you can simply access https://phpmyadmin.domain.tld. You will reach the reverse proxy on port 443 with the host header <code>phpmyadmin.domain.tld</code>, after evaluation the proxy will redirect the incomming request to the configured service.  </p>
 <ul>
-<li>Reverse Proxy</li>
-<li><a href="services/nginx-proxy/">jwilder/nginx-proxy</a></li>
-<li>
-<p><a href="services/traefik/">Traefik</a></p>
-</li>
-<li>
-<p>Webserver</p>
-</li>
+<li><a href="services/traefik/">Traefik</a></li>
+<li><a href="services/nginx-proxy/">jwilder/nginx-proxy</a> is no longer being maintained.</li>
+</ul>
+<h4 id="webserver">Webserver<a class="headerlink" href="#webserver" title="Permanent link">&para;</a></h4>
+<p>There are a bunch of webservers out there, I use nginx or httpd (apache2) most of the time.</p>
+<ul>
 <li><a href="services/nginx/">nginx</a></li>
-<li>
-<p><a href="services/httpd/">httpd with php</a></p>
-</li>
-<li>
-<p>Databases</p>
-</li>
+<li><a href="services/httpd/">httpd</a></li>
+<li><a href="services/httpd-php/">httpd with php</a></li>
+</ul>
+<h4 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h4>
+<p>I like to put the admin webtool for database management right next to the database:</p>
+<ul>
 <li><a href="services/mariadb/">MariaDB + phpMyAdmin</a></li>
-<li><a href="services/mongodb/">MongoDB</a></li>
 <li><a href="services/postgresql/">PostgreSQL + pgAdmin 4</a></li>
+<li><a href="services/mongodb/">MongoDB</a></li>
 <li><a href="services/redis/">Redis</a></li>
 </ul>
-<p>I suggest you to stop administrative services over the night. They shouln't be online for longer then needed, you can do this using a cronjob:
+<p>I recommend that you switch off the administrative services when not in use (e.g. overnight). Due to the fact that it is easy to forget this, you can also do this with a cronjob:
 <div class="highlight"><pre><span></span><code><span class="c1"># stop administrative services at 5 am during the week</span>
 <span class="m">00</span> <span class="m">05</span> * * <span class="m">1</span>-5 /usr/local/bin/docker-compose -f /home/admin/services/main/docker-compose.yml rm -fs phpmyadmin pgadmin <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 </code></pre></div></p>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
 <h3 id="ctop"><a href="https://ctop.sh/">ctop</a><a class="headerlink" href="#ctop" title="Permanent link">&para;</a></h3>
 <p>Simple commandline monitoring tool for docker containers:
-<div class="highlight"><pre><span></span><code>sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.3/ctop-0.7.3-linux-amd64 \
+<div class="highlight"><pre><span></span><code>sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.3/ctop-0.7.3-linux-amd64 <span class="se">\</span>
   -O /usr/local/bin/ctop
 sudo chmod +x /usr/local/bin/ctop
 </code></pre></div></p>
 <h3 id="docker-network-viewer">Docker Network Viewer<a class="headerlink" href="#docker-network-viewer" title="Permanent link">&para;</a></h3>
 <p>A simple tool to show docker networks:
-<div class="highlight"><pre><span></span><code>sudo wget https://github.com/felbinger/DNV/releases/download/v0.1/dnv \
+<div class="highlight"><pre><span></span><code>sudo wget https://github.com/felbinger/DNV/releases/download/v0.1/dnv <span class="se">\</span>
   -O /home/admin/tools/dnv
 sudo chmod +x /home/admin/tools/dnv
 </code></pre></div></p>
-<h2 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h2>
-<p><strong>I'm currently working on a new backup tool written in golang</strong>, this could be an alternative if you don't want to install the latest version of python on your server.</p>
-<p>I wrote <a href="https://github.com/felbinger/pybackup">my own backup script in python</a>.</p>
-<p><strong>Security Reminder</strong>: Due to the fact that the backup.py will be executed by root cronjob, the file should be only editable by root. Otherwise a lower privileged user, might add <code>/etc/shadow</code> or something else to gain higher privileges (<a href="https://en.wikipedia.org/wiki/Privilege_escalation">Privilege Escalation</a>).</p>
-<details>
-  <summary>Show deprecated way to install python3.8 using the testing repository (this might break your system!)</summary>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># install python3.8 from debian/testing - WARNING: this might break your system (use with caution!)</span>
-<span class="nb">echo</span> -e <span class="s1">&#39;\n# python3.8\ndeb [arch=amd64] http://deb.debian.org/debian/ testing main&#39;</span> <span class="p">|</span> sudo tee -a /etc/apt/sources.list
-<span class="nb">echo</span> <span class="s1">&#39;APT::Default-Release &quot;stable&quot;;&#39;</span> <span class="p">|</span> sudo tee /etc/apt/apt.conf.d/99defaultrelease
-sudo apt update
-sudo apt install -y -t testing python3.8 python3-pip
+<div class="highlight"><pre><span></span><code>$ sudo ./dnv 
+bridge          <span class="m">172</span>.17.0.0/16
+proxy           <span class="m">192</span>.168.0.0/24
+database        <span class="m">192</span>.168.1.0/24
+monitoring  <span class="m">192</span>.168.2.0/24
+main              <span class="m">192</span>.168.100.0/24
+storage         <span class="m">192</span>.168.101.0/24
+jitsi             <span class="m">192</span>.168.102.0/24
+games             <span class="m">192</span>.168.103.0/24
 </code></pre></div>
-
-</details>
-
+<h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
+<p><strong>I'm currently working on a new backup tool written in golang</strong>, this could be an alternative if you don't want to install the latest version of python on your server.</p>
+<p>Currently I use <a href="https://github.com/felbinger/pybackup">my python backup script</a>.</p>
+<p>First you need to install python3.8, because the latest version in the default repositories is <code>python 3.7.3</code> which won't work for my script. </p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">compile python3.8 from sources</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>sudo apt-get install build-essential checkinstall libreadline-gplv2-dev <span class="se">\</span>
   libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev <span class="se">\</span>
   libc6-dev libbz2-dev libffi-dev zlib1g-dev
@@ -665,6 +774,24 @@ sudo make altinstall
 <span class="nb">echo</span> <span class="s2">&quot;export PATH=/opt/python/3.8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span> &gt;&gt; /etc/profile.d/python3.8.sh
 bash /etc/profile.d/python3.8.sh
 </code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">install python3.8 from debian/testing</label><div class="tabbed-content">
+<div class="admonition warning">
+<p><strong>Warning</strong>: Due to the fact that this will add the debian/testing repositories to your system, this might break your system. Do <strong>not</strong> execute this on a productive system!</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> -e <span class="s1">&#39;\n# python3.8\ndeb [arch=amd64] http://deb.debian.org/debian/ testing main&#39;</span> <span class="se">\</span>
+  <span class="p">|</span> sudo tee -a /etc/apt/sources.list
+<span class="nb">echo</span> <span class="s1">&#39;APT::Default-Release &quot;stable&quot;;&#39;</span> <span class="se">\</span>
+  <span class="p">|</span> sudo tee /etc/apt/apt.conf.d/99defaultrelease
+sudo apt update
+sudo apt install -y -t testing python3.8 python3-pip
+</code></pre></div>
+</div>
+</div>
+<p>Afterwards you can clone the <a href="https://github.com/felbinger/pybackup">pybackup repository</a> to a place which is only writeable by root (I recommend <code>/root/</code>) and install the reqirements from the <code>requirements.txt</code>:</p>
+<div class="admonition warning">
+<p><strong>Security Warning</strong>: Due to the fact that the backup.py will be executed by root cronjob, the file should be only editable by root. Otherwise a lower privileged user, might exchange the python file or add a path (e.g. <code>/etc/shadow</code>) to the backup configuration to gain higher privileges (<a href="https://en.wikipedia.org/wiki/Privilege_escalation">Privilege Escalation</a>).</p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="c1"># install git and clone repository</span>
 sudo apt install -y git
 sudo git clone https://github.com/felbinger/pybackup /root/pybackup/
@@ -674,24 +801,29 @@ sudo pip3 install -r /root/pybackup/requirements.txt
 rm -r /root/pybackup/OffsideBackup
 
 <span class="c1"># configure pybackup</span>
-nano /root/pybackup/.config.json
+vim /root/pybackup/.config.json
 
 <span class="c1"># run backup</span>
 $ python3.8 backup.py -df
 </code></pre></div>
-<p>I really suggest creating a separate database user which can only create backups. MySQL Example: 
-<div class="highlight"><pre><span></span><code>$ sudo docker-compose <span class="nb">exec</span> mariadb mysql -u root -pSECRET_PASSWORD
-mariadb&gt; CREATE USER <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED BY <span class="s1">&#39;SECRET_PASSWORD&#39;</span><span class="p">;</span>
+<p>I really suggest creating a separate database user which can only create backups.<br />
+Checkout the documentation for your dbms:</p>
+<ul>
+<li><a href="https://mariadb.com/kb/en/create-user/">MariaDB</a>
+  <div class="highlight"><pre><span></span><code><span class="c1"># example for mariadb (you need SELECT and LOCK TABLES permissions)</span>
+$ sudo docker-compose <span class="nb">exec</span> mariadb <span class="s1">&#39;mysql -u root -pSECRET_PASSWORD&#39;</span>
+mariadb&gt; CREATE USER <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED BY <span class="s1">&#39;SECRET_PASSWORD_FOR_BACKUP&#39;</span><span class="p">;</span>
 mariadb&gt; GRANT SELECT, LOCK TABLES ON mysql.* TO <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 <span class="c1"># add privileges to all databases that you want to backup!</span>
 mariadb&gt; FLUSH PRIVILEGES<span class="p">;</span>
 mariadb&gt; EXIT<span class="p">;</span>
-</code></pre></div></p>
-<h3 id="scheduled-backups">Scheduled Backups<a class="headerlink" href="#scheduled-backups" title="Permanent link">&para;</a></h3>
+</code></pre></div></li>
+<li><a href="https://www.postgresql.org/docs/8.0/sql-createuser.html">PostgreSQL</a></li>
+<li><a href="https://docs.mongodb.com/manual/reference/method/db.createUser/">MongoDB</a></li>
+</ul>
 <p>Backups should also be scheduled using cronjob:
-<div class="highlight"><pre><span></span><code># file backups at 3 am every fifth day
-00 03 */5 * * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -f
-# database backups at 2:50 am every day
+<div class="highlight"><pre><span></span><code># database / file backups at 2:50 / 3 am am every every day
+00 03 * * * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -f
 50 02 * * * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -d
 </code></pre></div></p>
                 
@@ -702,7 +834,7 @@ mariadb&gt; EXIT<span class="p">;</span>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 5, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2020</span>
     
   </small>
 </div>

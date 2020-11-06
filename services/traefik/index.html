@@ -679,7 +679,7 @@
 </code></pre></div></p>
 <p>You should also add your domain to the <a href="https://hstspreload.org/">HSTS Preload List</a>, all subdomains need to be reachable using a secure connection, so you need a wildcard certificate for this.</p>
 <p>Let's do a <a href="https://www.ssllabs.com/ssltest">ssltest</a> to see how good we are:
-<img alt="Picture of the ssltest result" loading="lazy" src="../../img/services_traefik_ssllabs_test.png?raw=true" /></p>
+<img alt="Picture of the ssltest result" loading="lazy" src="../../img/services/traefik_ssllabs_test.png?raw=true" /></p>
 <h3 id="wildcard-certificates">Wildcard Certificates<a class="headerlink" href="#wildcard-certificates" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Modify the command section of your traefik, to setup dnschallenge (remove <code>....tlschallenge=true</code>):
@@ -715,7 +715,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 5, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2020</span>
     
   </small>
 </div>
