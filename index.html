@@ -708,9 +708,9 @@ Before you add a new service think which stack what fit best. It might be useful
 <p>The following list contains a list of services that might come in handy. Simply add them to your <code>docker-compose.yml</code> and modify the required attributes (e.g. passwords, domain name, routing configuration, ...).</p>
 <p>You can find all services (e.g. Gameserver, Teamspeak, Sinusbot, ...) in the navigation bar on the left side of your page. </p>
 <h4 id="reverse-proxys">Reverse Proxy's<a class="headerlink" href="#reverse-proxys" title="Permanent link">&para;</a></h4>
-<p>A reverse proxy is a router which binds to the ports 80 (http) and 443 (https).<br />
-You can access the configured services by connecting to the proxy (https://domain.tld) with a specific host header, which is going to be evaluated by the proxy.<br />
-But how do you connect to your proxy with this specific host header? Due to the fact that you configured your dns to redirect all subdomains to your server you can simply access https://phpmyadmin.domain.tld. You will reach the reverse proxy on port 443 with the host header <code>phpmyadmin.domain.tld</code>, after evaluation the proxy will redirect the incomming request to the configured service.  </p>
+<p>A reverse proxy is a router which binds to the ports <code>80</code> (http) and <code>443</code> (https).<br />
+You can access the configured services by connecting to the proxy (<code>https://domain.tld</code>) with a specific host header, which is going to be evaluated by the proxy.<br />
+But how do you connect to your proxy with this specific host header? Due to the fact that you configured your dns to redirect all subdomains to your server you can simply access <code>https://phpmyadmin.domain.tld</code>. You will reach the reverse proxy on port 443 with the host header <code>phpmyadmin.domain.tld</code>, after evaluation the proxy will redirect the incomming request to the configured service.  </p>
 <ul>
 <li><a href="services/traefik/">Traefik</a></li>
 <li><a href="services/nginx-proxy/">jwilder/nginx-proxy</a> is no longer being maintained.</li>
@@ -780,7 +780,8 @@ bash /etc/profile.d/python3.8.sh
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">install python3.8 from debian/testing</label><div class="tabbed-content">
 <div class="admonition warning">
-<p><strong>Warning</strong>: Due to the fact that this will add the debian/testing repositories to your system, this might break your system. Do <strong>not</strong> execute this on a productive system!</p>
+<p class="admonition-title">Warning</p>
+<p>Due to the fact that this will add the debian/testing repositories to your system, this might break your system. Do <strong>not</strong> execute this on a productive system!</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span> -e <span class="s1">&#39;\n# python3.8\ndeb [arch=amd64] http://deb.debian.org/debian/ testing main&#39;</span> <span class="se">\</span>
   <span class="p">|</span> sudo tee -a /etc/apt/sources.list
@@ -793,7 +794,8 @@ sudo apt install -y -t testing python3.8 python3-pip
 </div>
 <p>Afterwards you can clone the <a href="https://github.com/felbinger/pybackup">pybackup repository</a> to a place which is only writeable by root (I recommend <code>/root/</code>) and install the reqirements from the <code>requirements.txt</code>:</p>
 <div class="admonition warning">
-<p><strong>Security Warning</strong>: Due to the fact that the backup.py will be executed by root cronjob, the file should be only editable by root. Otherwise a lower privileged user, might exchange the python file or add a path (e.g. <code>/etc/shadow</code>) to the backup configuration to gain higher privileges (<a href="https://en.wikipedia.org/wiki/Privilege_escalation">Privilege Escalation</a>).</p>
+<p class="admonition-title">Security Warning</p>
+<p>Due to the fact that the backup.py will be executed by root cronjob, the file should be only editable by root. Otherwise a lower privileged user, might exchange the python file or add a path (e.g. <code>/etc/shadow</code>) to the backup configuration to gain higher privileges (<a href="https://en.wikipedia.org/wiki/Privilege_escalation">Privilege Escalation</a>).</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="c1"># install git and clone repository</span>
 sudo apt install -y git
