@@ -504,6 +504,38 @@ sudo chmod +x /usr/local/bin/docker-compose
 <p>Instead of typing <code>sudo docker-compose up -d</code> all the time you can use this alias and type <code>dc up -d</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;alias dc=&quot;sudo docker-compose &quot;&#39;</span> &gt;&gt; ~/.bashrc
 </code></pre></div>
+<details>
+  <summary>Parts of the PostInstall script covered in this chapter</summary>
+
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="k">function</span> install_docker_compose<span class="o">()</span> <span class="o">{</span>
+  curl -L <span class="s2">&quot;https://github.com/docker/compose/releases/download/latest/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&quot;</span> -o /usr/local/bin/docker-compose
+  chmod +x /usr/local/bin/docker-compose
+<span class="o">}</span>
+
+<span class="k">function</span> docker_network_create<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">name</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span>
+  <span class="nv">subnet</span><span class="o">=</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span>
+  docker network inspect <span class="si">${</span><span class="nv">name</span><span class="si">}</span> &gt;/dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="se">\</span>
+  docker network create --subnet <span class="si">${</span><span class="nv">subnet</span><span class="si">}</span> <span class="si">${</span><span class="nv">name</span><span class="si">}</span>
+<span class="o">}</span>
+
+<span class="c1"># install docker if not already installed</span>
+<span class="k">if</span> <span class="o">[[</span> -z <span class="k">$(</span>which docker<span class="k">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="k">if</span> <span class="o">[[</span> -z <span class="k">$(</span>which docker<span class="k">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    apt-get install curl
+  <span class="k">fi</span>
+  curl https://get.docker.com <span class="p">|</span> bash
+<span class="k">fi</span>
+
+<span class="c1"># install docker-compose if not already installed</span>
+<span class="k">if</span> <span class="o">[[</span> -z <span class="k">$(</span>which docker-compose<span class="k">)</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  install_docker_compose
+<span class="k">fi</span>
+</code></pre></div>
+
+</details>
                 
                   
                     

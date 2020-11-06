@@ -659,6 +659,100 @@ sudo docker network create --subnet <span class="m">192</span>.168.2.0/24 monito
 </code></pre></div>
 <p>The network created for a particular stack will be called <code>default</code> in the matching <code>docker-compose.yml</code>.
 This will help us, because if we do not specify a network in the service sections of the <code>docker-compose.yml</code>, these services will automatically connect network <code>defalut</code>.</p>
+<details>
+  <summary>Parts of the PostInstall script covered in this chapter</summary>
+
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1">## CONFIGURATION ###</span>
+<span class="nv">ADM_NAME</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span>
+<span class="nv">ADM_GID</span><span class="o">=</span><span class="m">997</span>
+<span class="nv">ADM_HOME</span><span class="o">=</span><span class="s1">&#39;/home/admin&#39;</span>
+<span class="nv">ADM_USERS</span><span class="o">=(</span><span class="s1">&#39;user&#39;</span><span class="o">)</span>
+
+<span class="nb">declare</span> -A <span class="nv">STACKS</span><span class="o">=(</span><span class="se">\</span>
+  <span class="o">[</span><span class="s2">&quot;main&quot;</span><span class="o">]=</span><span class="s2">&quot;192.168.100.0/24&quot;</span>
+<span class="o">)</span>
+
+<span class="nb">declare</span> -A <span class="nv">HELPER</span><span class="o">=(</span><span class="se">\</span>
+  <span class="o">[</span><span class="s2">&quot;proxy&quot;</span><span class="o">]=</span><span class="s2">&quot;192.168.0.0/24&quot;</span> <span class="se">\</span>
+  <span class="o">[</span><span class="s2">&quot;database&quot;</span><span class="o">]=</span><span class="s2">&quot;192.168.1.0/24&quot;</span> <span class="se">\</span>
+  <span class="o">[</span><span class="s2">&quot;monitoring&quot;</span><span class="o">]=</span><span class="s2">&quot;192.168.2.0/24&quot;</span>
+<span class="o">)</span>
+<span class="c1">### END of CONFIGURATION ###</span>
+
+<span class="k">function</span> docker_network_create<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">name</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span>
+  <span class="nv">subnet</span><span class="o">=</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span>
+  docker network inspect <span class="si">${</span><span class="nv">name</span><span class="si">}</span> &gt;/dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="se">\</span>
+  docker network create --subnet <span class="si">${</span><span class="nv">subnet</span><span class="si">}</span> <span class="si">${</span><span class="nv">name</span><span class="si">}</span>
+<span class="o">}</span>
+
+<span class="k">function</span> create_compose<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">compose</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span>
+  touch <span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;version: &#39;3.8&#39;\n&quot;</span> &gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+
+  <span class="c1"># define services</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;services:\n&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+  <span class="k">if</span> <span class="o">[[</span> <span class="si">${#</span><span class="nv">SERVICES</span><span class="si">}</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;  test:&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;    image: hello-world\n&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+  <span class="k">fi</span>
+
+  <span class="nb">echo</span> -e <span class="s2">&quot;\n&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+
+  <span class="c1"># define networks</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;networks:&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+
+  <span class="c1"># define stack network</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;  default:&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;    external:&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;      name: </span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+
+  <span class="c1"># define helper networks</span>
+  <span class="k">for</span> helper_name in <span class="si">${</span><span class="p">!HELPER[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;  </span><span class="si">${</span><span class="nv">helper_name</span><span class="si">}</span><span class="s2">:&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;    external:&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;      name: </span><span class="si">${</span><span class="nv">helper_name</span><span class="si">}</span><span class="s2">&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+  <span class="k">done</span>
+<span class="o">}</span>
+
+<span class="c1"># remove trailing slash from ADM_HOME</span>
+<span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> */ <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nv">ADM_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">ADM_HOME</span><span class="p">:</span><span class="k">:-</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># create admin group, add members to group and set permissions</span>
+groupadd -g <span class="si">${</span><span class="nv">ADM_GID</span><span class="si">}</span> <span class="si">${</span><span class="nv">ADM_NAME</span><span class="si">}</span>
+mkdir <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>
+chown -R root:<span class="si">${</span><span class="nv">ADM_NAME</span><span class="si">}</span> <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>
+chmod -R <span class="m">775</span> <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>
+<span class="k">for</span> user in <span class="si">${</span><span class="nv">ADM_USERS</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+  adduser <span class="si">${</span><span class="nv">user</span><span class="si">}</span> <span class="si">${</span><span class="nv">ADM_NAME</span><span class="si">}</span>
+<span class="k">done</span>
+
+<span class="c1"># create helper networks</span>
+<span class="k">for</span> name in <span class="si">${</span><span class="p">!HELPER[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nv">subnet</span><span class="o">=</span><span class="si">${</span><span class="nv">HELPER</span><span class="p">[</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="p">]</span><span class="si">}</span>
+  docker_network_create <span class="si">${</span><span class="nv">name</span><span class="si">}</span> <span class="si">${</span><span class="nv">subnet</span><span class="si">}</span>
+<span class="k">done</span>
+
+<span class="c1"># create stack logic</span>
+mkdir -p <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>/<span class="o">{</span>services,images,tools,docs<span class="o">}</span>/
+<span class="k">for</span> name in <span class="si">${</span><span class="p">!STACKS[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nv">subnet</span><span class="o">=</span><span class="si">${</span><span class="nv">STACKS</span><span class="p">[</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="p">]</span><span class="si">}</span>
+  mkdir -p <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>/<span class="o">{</span>services,images<span class="o">}</span>/<span class="si">${</span><span class="nv">name</span><span class="si">}</span>/
+  mkdir -p <span class="s2">&quot;/srv/</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">/&quot;</span>
+
+  <span class="c1"># create stack network</span>
+  docker_network_create <span class="si">${</span><span class="nv">name</span><span class="si">}</span> <span class="si">${</span><span class="nv">subnet</span><span class="si">}</span>
+
+  <span class="c1"># create docker-compose.yml</span>
+  <span class="nv">compose</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span><span class="s2">/services/</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">/docker-compose.yml&quot;</span>
+  create_compose <span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
+<span class="k">done</span>
+</code></pre></div>
+
+</details>
                 
                   
                     
