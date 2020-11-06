@@ -801,7 +801,9 @@ MaxAuthTries <span class="m">3</span>
 MaxSessions <span class="m">5</span>
 </code></pre></div></p>
 <div class="admonition info">
-<p>Don't forget to restart your SSH Server!</p>
+<p>Don't forget to restart your SSH Server:
+<div class="highlight"><pre><span></span><code>sudo systemctl restart ssh
+</code></pre></div></p>
 </div>
 <div class="admonition warning">
 <p>Make sure you can log in using your SSH private key, otherwise you are not able to login again after the next step!</p>
