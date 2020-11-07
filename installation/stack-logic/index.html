@@ -556,7 +556,7 @@
                 
                   <h1>Stack Logic</h1>
                 
-                <p>We will group the services in different "stacks" to manage them, this way we can change specific things without taking all services offline. Furthermore, we will use one docker network per stack to make sure, that each container is only able to communicate with other containers which it really needs.</p>
+                <p>We will group the services in different "stacks" to manage them, this way we can change specific things without taking all services offline. Furthermore, we will use one docker network per stack to ensure, that each container is only able to communicate with other containers which it really needs.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>First, let's add the default directories into the admin directory:</p>
 <div class="highlight"><pre><span></span><code>mkdir -p /home/admin/<span class="o">{</span>services,images,tools,docs<span class="o">}</span>/
@@ -593,11 +593,8 @@
 <li>The directory in <code>/home/admin/images/</code> contains the source files for the docker image if we have to build the image on the server.</li>
 <li>The directory in <code>/srv/</code> is used to store persistent data for the stack (docker volumes).</li>
 </ul>
-<p>We will also create multiple docker networks, to give the containers the ability to communicate with each other.</p>
-<ul>
-<li>Helper networks (for communication between different stacks: e.g. database, proxy, monitoring, ...) start at <code>192.168.0.0/24</code></li>
-<li>Stack networks (one network for each stack) start at <code>192.168.100.0/24</code></li>
-</ul>
+<p>We will also create multiple docker networks, to give the containers the ability to communicate with each other.
+Helper networks for specific communication (e.g. to the reverse proxy, the databases or the monitoring) start at <code>192.168.0.0/24</code>. Stack networks (one network for each stack) start at <code>192.168.100.0/24</code>.</p>
 <div class="admonition note">
 <p>Note that a network with the submask 255.255.255.0 (cidr notation is 24) can only contain 254 hosts.
 You have to adjust your network size to your needs.</p>
@@ -651,9 +648,28 @@ sudo docker network create --subnet <span class="m">192</span>.168.0.0/24 proxy
 sudo docker network create --subnet <span class="m">192</span>.168.1.0/24 database
 sudo docker network create --subnet <span class="m">192</span>.168.2.0/24 monitoring
 </code></pre></div>
+<p>You can create as many stacks, as you need. The main stack contains the services that are relevant for the majority of the services (e.g. reverse proxy, static webserver for the reverse proxy, databases, admin panels (because they are related to the databases), monitoring). All other services will be outsourced to another stack. The following list containers just a few ideas, how you could name them:</p>
+<ul>
+<li>
+<p>games: all game servers<br />
+(e.g. Minecraft, Arma 3)</p>
+</li>
+<li>
+<p>storage: applications that store your data<br />
+(e.g. NextCloud, Syncthing, ...)</p>
+</li>
+<li>
+<p>comms (short form of communication): things to communicate<br />
+(e.g. TeamSpeak, Sinusbot, Telegram Bots, Discord Bots)</p>
+</li>
+<li>
+<p>jitsi: another video conference system (simply use <a href="https://github.com/jitsi/docker-jitsi-meet">their configuration on github</a>)</p>
+</li>
+</ul>
 <p>Lastly we are going to create a <code>docker-compose.yml</code> which we will use to define our networks.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
-<span class="nt">services</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">services</span><span class="p">:</span> 
+  <span class="l l-Scalar l-Scalar-Plain">...</span>     <span class="c1"># you need to add your services right here...</span>
 
 <span class="nt">networks</span><span class="p">:</span>
   <span class="nt">default</span><span class="p">:</span>
@@ -773,7 +789,7 @@ mkdir -p <span class="si">${</span><span class="nv">ADM_HOME</span><span class="
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 7, 2020</span>
     
   </small>
 </div>
