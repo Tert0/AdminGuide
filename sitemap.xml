@@ -56,6 +56,10 @@
      <lastmod>2020-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://felbinger.github.io/AdminGuide/services/openldap/</loc>
+     <lastmod>2020-11-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://felbinger.github.io/AdminGuide/services/monitoring/</loc>
      <lastmod>2020-11-07</lastmod>
      <changefreq>daily</changefreq>
@@ -69,10 +73,6 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://felbinger.github.io/AdminGuide/services/teamspeak/</loc>
-     <lastmod>2020-11-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://felbinger.github.io/AdminGuide/OpenLDAP/</loc>
      <lastmod>2020-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
