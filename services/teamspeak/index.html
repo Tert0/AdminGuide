@@ -659,6 +659,32 @@
     <span class="nt">networks</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proxy</span>
 </code></pre></div></p>
+<p>If you forgot your serverquery admin password you can reset it using the following command:</p>
+<div class="admonition note">
+<p>If you configured the environment variables inside an env file you can use: <code>--env-file .ts3server.env</code></p>
+</div>
+<div class="highlight"><pre><span></span><code>sudo docker run --rm -it \
+  -e TS3SERVER_DB_PLUGIN=ts3db_mariadb \
+  -e TS3SERVER_DB_SQLCREATEPATH=create_mariadb \
+  -e TS3SERVER_DB_HOST=mariadb \
+  -e TS3SERVER_DB_USER=teamspeak \
+  -e TS3SERVER_DB_NAME=teamspeak \
+  -e TS3SERVER_DB_PASSWORD=S3cr3t \
+  -e TS3SERVER_DB_WAITUNTILREADY=30 \
+  -e TS3SERVER_LICENSE=accept \
+  -v &quot;/srv/main/ts3/data:/var/ts3server/&quot; \
+  --network database \
+  teamspeak \
+  ts3server inifile=/var/run/ts3server/ts3server.ini serveradmin_password=NEW_PASSWORD
+</code></pre></div>
+<p>Afterwards you can connect to port 10011 using telnet or netcat
+<div class="highlight"><pre><span></span><code>nc localhost <span class="m">10011</span>
+login serveradmin NEW_PASSWORD
+<span class="c1"># use server 1 (default)</span>
+use <span class="m">1</span>
+<span class="c1"># add a new admin token</span>
+tokenadd <span class="nv">tokentype</span><span class="o">=</span><span class="m">0</span> <span class="nv">tokenid1</span><span class="o">=</span><span class="m">6</span> <span class="nv">tokenid2</span><span class="o">=</span><span class="m">0</span>
+</code></pre></div></p>
                 
                   
                     
@@ -667,7 +693,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 7, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 22, 2020</span>
     
   </small>
 </div>
