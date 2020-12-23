@@ -793,22 +793,15 @@
                 <p>I tested a lot of prebuild docker images and I came to the conclusion that the one from <code>osixia/openldap:1.4.0</code> works best.
 Unfortunately neither the <a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt hashing algorithm</a> nor the <a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2 hashing algorithm</a> is being support.
 So, we are going to use osixia's image as base, and add the bcrypt hashing algorithm (checkout <a href="https://github.com/howardlau1999/openldap-bcrypt-docker">howardlau1999/openldap-bcrypt-docker</a>).</p>
-<p>I like to combind every service with a administrative webinterface. I use phpldapadmin which is also available from osixia: <a href="https://github.com/osixia/docker-phpLDAPadmin"><code>osixia/docker-phpLDAPadmin</code></a>.
-Today's version of phpldapadmin from osixia is 1.2.5, but there is version 1.2.6.2 (which supports bcrypt), so let's clone also this git repository to build the image with the correct version of phpldapadmin.</p>
-<p>So let's clone the repositories and build our own images:<br />
-<div class="highlight"><pre><span></span><code><span class="c1"># create docker image: local/openldap</span>
-git clone https://github.com/howardlau1999/openldap-bcrypt-docker.git <span class="se">\</span>
+<p>I like to combind every service with a administrative webinterface. ~~I use phpldapadmin which is also available from osixia: <a href="https://github.com/osixia/docker-phpLDAPadmin"><code>osixia/docker-phpLDAPadmin</code></a>.
+Today's version of phpldapadmin from osixia is 1.2.5, but there is version 1.2.6.2 (which supports bcrypt), so let's clone also this git repository to build the image with the correct version of phpldapadmin.~~
+A friend of mine, who's also supporting me with the admin guide, build a custom phpldapadmin image, which only supports secure hashing algorithms and uses a small alpine base image. 
+<a href="https://github.com/MarcelCoding/phpLDAPadmin">Checkout his git repository</a> or simply use his docker image: <a href="https://hub.docker.com/r/marcelcoding/phpldapadmin"><code>marcelcoding/phpldapadmin</code></a></p>
+<p>So let's clone the repositories and build our own ldap image:<br />
+<div class="highlight"><pre><span></span><code>git clone https://github.com/howardlau1999/openldap-bcrypt-docker.git <span class="se">\</span>
   /home/admin/images/main/openldap
 sudo docker build -t local/openldap <span class="se">\</span>
   /home/admin/images/main/openldap
-
-<span class="c1"># create docker image: local/phpldapadmin</span>
-git clone https://github.com/osixia/docker-phpLDAPadmin.git <span class="se">\</span>
-  /home/admin/images/main/phpldapadmin
-sudo docker build <span class="se">\</span>
-  --build-arg <span class="s1">&#39;PHPLDAPADMIN_VERSION=1.2.6.2&#39;</span> <span class="se">\</span>
-  -t local/phpldapadmin <span class="se">\</span>
-  /home/admin/images/main/phpldapadmin/image/
 </code></pre></div></p>
 <p>Afterwards we can define the services in the main <code>docker-compose.yml</code>
 <div class="highlight"><pre><span></span><code>  <span class="nt">ldap</span><span class="p">:</span>
@@ -881,7 +874,7 @@ ldapadd -x -D <span class="s1">&#39;cn=admin,dc=domain,dc=de&#39;</span> -w<span
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 7, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 23, 2020</span>
     
   </small>
 </div>
