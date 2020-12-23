@@ -818,13 +818,11 @@ sudo docker build -t local/openldap <span class="se">\</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
 
   <span class="nt">ldapadmin</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local/phpldapadmin</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">marcelcoding/phpldapadmin</span>
     <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
     <span class="nt">environment</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;PHPLDAPADMIN_HTTPS=false&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;PHPLDAPADMIN_TRUST_PROXY_SSL=true&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;PHPLDAPADMIN_SERVER_ADMIN=admin@domain.de&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;PHPLDAPADMIN_LDAP_HOSTS=#PYTHON2BASH:[{&quot;ldap&quot;:</span><span class="nv"> </span><span class="s">[{&quot;server&quot;:</span><span class="nv"> </span><span class="s">[{&quot;tls&quot;:</span><span class="nv"> </span><span class="s">False}]},</span><span class="nv"> </span><span class="s">{&quot;login&quot;:</span><span class="nv"> </span><span class="s">[{&quot;bind_id&quot;:</span><span class="nv"> </span><span class="s">&quot;cn=admin,dc=domain,dc=de&quot;}]}]}]&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;LDAP_HOST=ldap&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&#39;LDAP_BIND_DN=cn=admin,dc=domain,dc=de&#39;</span>
     <span class="nt">labels</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.enable=true&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.services.srv_ldapadmin.loadbalancer.server.port=80&quot;</span>
