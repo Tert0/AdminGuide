@@ -793,9 +793,10 @@
                 <p>I tested a lot of prebuild docker images and I came to the conclusion that the one from <code>osixia/openldap:1.4.0</code> works best.
 Unfortunately neither the <a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt hashing algorithm</a> nor the <a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2 hashing algorithm</a> is being support.
 So, we are going to use osixia's image as base, and add the bcrypt hashing algorithm (checkout <a href="https://github.com/howardlau1999/openldap-bcrypt-docker">howardlau1999/openldap-bcrypt-docker</a>).</p>
-<p>I like to combind every service with a administrative webinterface. ~~I use phpldapadmin which is also available from osixia: <a href="https://github.com/osixia/docker-phpLDAPadmin"><code>osixia/docker-phpLDAPadmin</code></a>.
-Today's version of phpldapadmin from osixia is 1.2.5, but there is version 1.2.6.2 (which supports bcrypt), so let's clone also this git repository to build the image with the correct version of phpldapadmin.~~
-A friend of mine, who's also supporting me with the admin guide, build a custom phpldapadmin image, which only supports secure hashing algorithms and uses a small alpine base image. 
+<p>I like to combind every service with a administrative webinterface.<br />
+<s>I use phpldapadmin which is also available from osixia: <a href="https://github.com/osixia/docker-phpLDAPadmin"><code>osixia/docker-phpLDAPadmin</code></a>.
+Today's version of phpldapadmin from osixia is 1.2.5, but there is version 1.2.6.2 (which supports bcrypt), so let's clone also this git repository to build the image with the correct version of phpldapadmin.</s>  </p>
+<p>A friend of mine, who's also supporting me with the admin guide, build a custom phpldapadmin image, which only supports secure hashing algorithms and uses a small alpine base image. 
 <a href="https://github.com/MarcelCoding/phpLDAPadmin">Checkout his git repository</a> or simply use his docker image: <a href="https://hub.docker.com/r/marcelcoding/phpldapadmin"><code>marcelcoding/phpldapadmin</code></a></p>
 <p>So let's clone the repositories and build our own ldap image:<br />
 <div class="highlight"><pre><span></span><code>git clone https://github.com/howardlau1999/openldap-bcrypt-docker.git <span class="se">\</span>
