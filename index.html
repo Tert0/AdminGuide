@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://felbinger.github.io/AdminGuide/">
       
       <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.39b8e14a.min.css">
@@ -882,7 +882,7 @@
                 
                   <h1>Overview</h1>
                 
-                <p>This Admin Guide describes how I setup my servers using docker. </p>
+                <p>This Admin Guide describes how I setup my servers using docker.</p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
 <p>I created a script which can be executed to setup the server.<br />
 I suggest you to get used to my structure (e.g. the stack logic), otherwise you might run into problems later on.<br />
@@ -890,13 +890,25 @@ If you never used this guide, you should <a href="./installation/">perform the i
 <details>
   <summary>Post Installation Script</summary>
 
-You can basicly skip most of the installation section, but there are some exceptions.  
-First you should create all user accounts, and ensure that everyone is able to authenticate using public key authentication.
-You can add the users in the configuration section of the `postinstall.sh` to give them the groups, aliases, ... After you are sure that you can connect to the server you should secure your ssh server (e.g. disallow authentication using passwords, root login, ...).  
+<br>
+You can basicly skip most of the installation section, but there are some exceptions.
 
-If you want to change your hostname to something cooler than the name your hoster assigned you (this is not required, I do it to improve the identification process of the server, that I'm connected to).  
+<ul>
+  <li>
+  First you should create all user accounts, and ensure that everyone is able to authenticate using public key authentication.
+  </li>
+  <li>
+  You can add the users in the configuration section of the `postinstall.sh` to give them the groups, aliases, ... After you are sure that you can connect to the server you should secure your ssh server (e.g. disallow authentication using passwords, root login, ...).  
+  </li>
 
-You also need to setup your dns records, consider to change the name servers to cloudflare if you have trouble with the dns challenge for wildcard certificate later on.
+  <li>
+  If you want to change your hostname to something cooler than the name your hoster assigned you (this is not required, I do it to improve the identification process of the server, that I'm connected to).  
+  </li>
+
+  <li>
+  You also need to setup your dns records, consider to change the name servers to cloudflare if you have trouble with the dns challenge for wildcard certificate later on.
+  </li>
+</ul>
 
 <div class="highlight"><pre><span></span><code>curl -fsSL https://raw.githubusercontent.com/felbinger/AdminGuide/master/postinstall.sh | sudo bash
 </code></pre></div>
@@ -907,11 +919,11 @@ You also need to setup your dns records, consider to change the name servers to 
 <p>After you successfully installed your system, you can add the services you need.<br />
 Before you add a new service think which stack what fit best. It might be useful to create a new stack.</p>
 <p>The following list contains a list of services that might come in handy. Simply add them to your <code>docker-compose.yml</code> and modify the required attributes (e.g. passwords, domain name, routing configuration, ...).</p>
-<p>You can find all services (e.g. Gameserver, Teamspeak, Sinusbot, ...) in the navigation bar on the left side of your page. </p>
+<p>You can find all services (e.g. Gameserver, Teamspeak, Sinusbot, ...) in the navigation bar on the left side of your page.</p>
 <h4 id="reverse-proxys">Reverse Proxy's<a class="headerlink" href="#reverse-proxys" title="Permanent link">&para;</a></h4>
 <p>A reverse proxy is a router which binds to the ports <code>80</code> (http) and <code>443</code> (https).<br />
 You can access the configured services by connecting to the proxy (<code>https://domain.tld</code>) with a specific host header, which is going to be evaluated by the proxy.<br />
-But how do you connect to your proxy with this specific host header? Due to the fact that you configured your dns to redirect all subdomains to your server you can simply access <code>https://phpmyadmin.domain.tld</code>. You will reach the reverse proxy on port 443 with the host header <code>phpmyadmin.domain.tld</code>, after evaluation the proxy will redirect the incomming request to the configured service.  </p>
+But how do you connect to your proxy with this specific host header? Due to the fact that you configured your dns to redirect all subdomains to your server you can simply access <code>https://phpmyadmin.domain.tld</code>. You will reach the reverse proxy on port 443 with the host header <code>phpmyadmin.domain.tld</code>, after evaluation the proxy will redirect the incomming request to the configured service.</p>
 <ul>
 <li><a href="services/traefik/">Traefik</a></li>
 <li><a href="services/nginx-proxy/">jwilder/nginx-proxy</a> is no longer being maintained.</li>
@@ -931,24 +943,24 @@ But how do you connect to your proxy with this specific host header? Due to the 
 <li><a href="services/mongodb/">MongoDB</a></li>
 <li><a href="services/redis/">Redis</a></li>
 </ul>
-<p>I recommend that you switch off the administrative services when not in use (e.g. overnight). Due to the fact that it is easy to forget this, you can also do this with a cronjob:
+<p>I recommend that you switch off the administrative services when not in use (e.g. overnight). Due to the fact that it is easy to forget this, you can also do this with a cronjob:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># stop administrative services at 5 am during the week</span>
 <span class="m">00</span> <span class="m">05</span> * * <span class="m">1</span>-5 /usr/local/bin/docker-compose -f /home/admin/services/main/docker-compose.yml rm -fs phpmyadmin pgadmin <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
 <h3 id="ctop"><a href="https://ctop.sh/">ctop</a><a class="headerlink" href="#ctop" title="Permanent link">&para;</a></h3>
-<p>Simple commandline monitoring tool for docker containers:
+<p>Simple commandline monitoring tool for docker containers:</p>
 <div class="highlight"><pre><span></span><code>sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.3/ctop-0.7.3-linux-amd64 <span class="se">\</span>
   -O /usr/local/bin/ctop
 sudo chmod +x /usr/local/bin/ctop
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="docker-network-viewer">Docker Network Viewer<a class="headerlink" href="#docker-network-viewer" title="Permanent link">&para;</a></h3>
-<p>A simple tool to show docker networks:
+<p>A simple tool to show docker networks:</p>
 <div class="highlight"><pre><span></span><code>sudo wget https://github.com/felbinger/DNV/releases/download/v0.1/dnv <span class="se">\</span>
   -O /usr/local/bin/dnv
 sudo chmod +x /usr/local/bin/dnv
-</code></pre></div></p>
-<div class="highlight"><pre><span></span><code>$ sudo ./dnv 
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ sudo ./dnv
 bridge          <span class="m">172</span>.17.0.0/16
 proxy           <span class="m">192</span>.168.0.0/24
 database        <span class="m">192</span>.168.1.0/24
@@ -961,44 +973,37 @@ games             <span class="m">192</span>.168.103.0/24
 <h3 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h3>
 <p><strong>I'm currently working on a new backup tool written in golang</strong>, this could be an alternative if you don't want to install the latest version of python on your server.</p>
 <p>Currently I use <a href="https://github.com/felbinger/pybackup">my python backup script</a>.</p>
-<p>First you need to install python3.8, because the latest version in the default repositories is <code>python 3.7.3</code> which won't work for my script. </p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">compile python3.8 from sources</label><div class="tabbed-content">
+<p>First you need to install python3.8, because the latest version in the default repositories is <code>python 3.7.3</code> which won't work for my script.</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">compile python3.8 from sources</label><div class="tabbed-content"></div>
+</div>
 <div class="highlight"><pre><span></span><code>sudo apt-get install build-essential checkinstall libreadline-gplv2-dev <span class="se">\</span>
-  libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev <span class="se">\</span>
-  libc6-dev libbz2-dev libffi-dev zlib1g-dev
+ libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev <span class="se">\</span>
+ libc6-dev libbz2-dev libffi-dev zlib1g-dev
 
-wget https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tgz
-tar xzf Python-3.8.6.tgz
+    wget https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tgz
+    tar xzf Python-3.8.6.tgz
 
-<span class="nb">cd</span> Python-3.8.6
-./configure --enable-optimizations --prefix<span class="o">=</span>/opt/python/3.8
-make -j<span class="k">$(</span>nproc<span class="k">)</span>
-sudo make altinstall
+    <span class="nb">cd</span> Python-3.8.6
+    ./configure --enable-optimizations --prefix<span class="o">=</span>/opt/python/3.8
+    make -j<span class="k">$(</span>nproc<span class="k">)</span>
+    sudo make altinstall
 
-<span class="nb">echo</span> <span class="s2">&quot;export PATH=/opt/python/3.8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span> &gt;&gt; /etc/profile.d/python3.8.sh
-bash /etc/profile.d/python3.8.sh
-</code></pre></div>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">install python3.8 from debian/testing</label><div class="tabbed-content">
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Due to the fact that this will add the debian/testing repositories to your system, this might break your system. Do <strong>not</strong> execute this on a productive system!</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> -e <span class="s1">&#39;\n# python3.8\ndeb [arch=amd64] http://deb.debian.org/debian/ testing main&#39;</span> <span class="se">\</span>
-  <span class="p">|</span> sudo tee -a /etc/apt/sources.list
-<span class="nb">echo</span> <span class="s1">&#39;APT::Default-Release &quot;stable&quot;;&#39;</span> <span class="se">\</span>
-  <span class="p">|</span> sudo tee /etc/apt/apt.conf.d/99defaultrelease
-sudo apt update
-sudo apt install -y -t testing python3.8 python3-pip
-</code></pre></div>
-</div>
-</div>
-<p>Afterwards you can clone the <a href="https://github.com/felbinger/pybackup">pybackup repository</a> to a place which is only writeable by root (I recommend <code>/root/</code>) and install the reqirements from the <code>requirements.txt</code>:</p>
-<div class="admonition warning">
-<p class="admonition-title">Security Warning</p>
-<p>Due to the fact that the backup.py will be executed by root cronjob, the file should be only editable by root. Otherwise a lower privileged user, might exchange the python file or add a path (e.g. <code>/etc/shadow</code>) to the backup configuration to gain higher privileges (<a href="https://en.wikipedia.org/wiki/Privilege_escalation">Privilege Escalation</a>).</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="c1"># install git and clone repository</span>
+    <span class="nb">echo</span> <span class="s2">&quot;export PATH=/opt/python/3.8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span> &gt;&gt; /etc/profile.d/python3.8.sh
+    bash /etc/profile.d/python3.8.sh
+    <span class="sb">```</span>
+
+<span class="o">===</span> <span class="s2">&quot;install python3.8 from debian/testing&quot;</span>
+!!! warning <span class="s2">&quot;Warning&quot;</span>
+Due to the fact that this will add the debian/testing repositories to your system, this might <span class="nb">break</span> your system. Do **not** execute this on a productive system!
+<span class="sb">`</span>bash <span class="nb">echo</span> -e <span class="s1">&#39;\n# python3.8\ndeb [arch=amd64] http://deb.debian.org/debian/ testing main&#39;</span> <span class="se">\ </span><span class="p">|</span> sudo tee -a /etc/apt/sources.list <span class="nb">echo</span> <span class="s1">&#39;APT::Default-Release &quot;stable&quot;;&#39;</span> <span class="se">\ </span><span class="p">|</span> sudo tee /etc/apt/apt.conf.d/99defaultrelease sudo apt update sudo apt install -y -t testing python3.8 python3-pip <span class="sb">`</span>
+
+Afterwards you can clone the <span class="o">[</span>pybackup repository<span class="o">](</span>https://github.com/felbinger/pybackup<span class="o">)</span> to a place which is only writeable by root <span class="o">(</span>I recommend <span class="sb">`</span>/root/<span class="sb">`</span><span class="o">)</span> and install the reqirements from the <span class="sb">`</span>requirements.txt<span class="sb">`</span>:
+
+!!! warning <span class="s2">&quot;Security Warning&quot;</span>
+Due to the fact that the backup.py will be executed by root cronjob, the file should be only editable by root. Otherwise a lower privileged user, might exchange the python file or add a path <span class="o">(</span>e.g. <span class="sb">`</span>/etc/shadow<span class="sb">`</span><span class="o">)</span> to the backup configuration to gain higher privileges <span class="o">([</span>Privilege Escalation<span class="o">](</span>https://en.wikipedia.org/wiki/Privilege_escalation<span class="o">))</span>.
+
+<span class="sb">```</span>bash
+<span class="c1"># install git and clone repository</span>
 sudo apt install -y git
 sudo git clone https://github.com/felbinger/pybackup /root/pybackup/
 sudo pip3 install -r /root/pybackup/requirements.txt
@@ -1027,11 +1032,11 @@ mariadb&gt; EXIT<span class="p">;</span>
 <li><a href="https://www.postgresql.org/docs/8.0/sql-createuser.html">PostgreSQL</a></li>
 <li><a href="https://docs.mongodb.com/manual/reference/method/db.createUser/">MongoDB</a></li>
 </ul>
-<p>Backups should also be scheduled using cronjob:
+<p>Backups should also be scheduled using cronjob:</p>
 <div class="highlight"><pre><span></span><code># database / file backups at 2:50 / 3 am am every every day
 00 03 * * * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -f
 50 02 * * * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -d
-</code></pre></div></p>
+</code></pre></div>
                 
                   
                     
@@ -1040,7 +1045,7 @@ mariadb&gt; EXIT<span class="p">;</span>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 7, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 27, 2020</span>
     
   </small>
 </div>
