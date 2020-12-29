@@ -867,8 +867,8 @@ apt-get -y dist-upgrade
 apt-get -y install apt sudo curl nano
 </code></pre></div></p>
 <h2 id="change-hostname-optional">Change Hostname [optional]<a class="headerlink" href="#change-hostname-optional" title="Permanent link">&para;</a></h2>
-<p>In most cases, your hosting provider gave your machine an ugly hostname, so let's change that.
-Just change your new hostname to the files <code>/etc/hostname</code> and <code>/etc/hosts</code> according to the following example:
+<p>In most cases, your hosting provider gave your machine an ugly hostname.
+Just change it in the files <code>/etc/hostname</code> and <code>/etc/hosts</code> to your new one according to the following example:
 <div class="highlight"><pre><span></span><code><span class="c1"># /etc/hostname</span>
 &lt;hostname&gt;
 </code></pre></div>
@@ -884,7 +884,7 @@ ff02::1           ip6-allnodes
 ff02::2           ip6-allrouters
 </code></pre></div></p>
 <div class="admonition warning">
-<p>IPv6-FQDN is missing, although I never set up a server using ipb6.</p>
+<p>IPv6-FQDN is missing, although I never set up a server using ipv6.</p>
 </div>
 <p>In this case I decided to use the hostname <code>server</code> and assign the fully qualified domain name <code>fqdn.domain.tld</code> to it.
 To apply the changes, you need to restart the server.</p>
@@ -1020,7 +1020,7 @@ MaxSessions <span class="m">5</span>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 29, 2020</span>
     
   </small>
 </div>
