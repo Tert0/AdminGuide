@@ -212,12 +212,105 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Overview
+        <span class="md-nav__icon md-icon"></span>
+      </label>
     
     <a href="." class="md-nav__link md-nav__link--active">
       Overview
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-services" class="md-nav__link">
+    Create your Services
+  </a>
+  
+    <nav class="md-nav" aria-label="Create your Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxys" class="md-nav__link">
+    Reverse Proxy's
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webserver" class="md-nav__link">
+    Webserver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    Databases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctop" class="md-nav__link">
+    ctop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-network-viewer" class="md-nav__link">
+    Docker Network Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    Backup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -701,8 +794,89 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-services" class="md-nav__link">
+    Create your Services
+  </a>
+  
+    <nav class="md-nav" aria-label="Create your Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxys" class="md-nav__link">
+    Reverse Proxy's
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webserver" class="md-nav__link">
+    Webserver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    Databases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctop" class="md-nav__link">
+    ctop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-network-viewer" class="md-nav__link">
+    Docker Network Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    Backup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -718,6 +892,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
+                
+                  <h1>Overview</h1>
                 
                 <p>This Admin Guide describes how I setup my servers using docker.</p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
@@ -854,30 +1030,27 @@ vim /root/pybackup/.config.json
 
 <span class="c1"># run backup</span>
 $ python3.8 backup.py -df
-<span class="sb">````</span>
-
-I really suggest creating a separate database user which can only create backups.  
-Checkout the documentation <span class="k">for</span> your dbms:
-
-- <span class="o">[</span>MariaDB<span class="o">](</span>https://mariadb.com/kb/en/create-user/<span class="o">)</span>
-  <span class="sb">```</span>bash
-  <span class="c1"># example for mariadb (you need SELECT and LOCK TABLES permissions)</span>
-  $ sudo docker-compose <span class="nb">exec</span> mariadb <span class="s1">&#39;mysql -u root -pSECRET_PASSWORD&#39;</span>
-  mariadb&gt; CREATE USER <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED BY <span class="s1">&#39;SECRET_PASSWORD_FOR_BACKUP&#39;</span><span class="p">;</span>
-  mariadb&gt; GRANT SELECT, LOCK TABLES ON mysql.* TO <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
-  <span class="c1"># add privileges to all databases that you want to backup!</span>
-  mariadb&gt; FLUSH PRIVILEGES<span class="p">;</span>
-  mariadb&gt; EXIT<span class="p">;</span>
-  <span class="sb">```</span>
-- <span class="o">[</span>PostgreSQL<span class="o">](</span>https://www.postgresql.org/docs/8.0/sql-createuser.html<span class="o">)</span>
-- <span class="o">[</span>MongoDB<span class="o">](</span>https://docs.mongodb.com/manual/reference/method/db.createUser/<span class="o">)</span>
-
-Backups should also be scheduled using cronjob:
 </code></pre></div>
-<h1 id="database-file-backups-at-250-3-am-am-every-every-day">database / file backups at 2:50 / 3 am am every every day<a class="headerlink" href="#database-file-backups-at-250-3-am-am-every-every-day" title="Permanent link">&para;</a></h1>
-<p>00 03 * <em> * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -f
-50 02 * </em> * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -d
-```</p>
+<p>I really suggest creating a separate database user which can only create backups.<br />
+Checkout the documentation for your dbms:</p>
+<ul>
+<li><a href="https://mariadb.com/kb/en/create-user/">MariaDB</a>
+  <div class="highlight"><pre><span></span><code><span class="c1"># example for mariadb (you need SELECT and LOCK TABLES permissions)</span>
+$ sudo docker-compose <span class="nb">exec</span> mariadb <span class="s1">&#39;mysql -u root -pSECRET_PASSWORD&#39;</span>
+mariadb&gt; CREATE USER <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED BY <span class="s1">&#39;SECRET_PASSWORD_FOR_BACKUP&#39;</span><span class="p">;</span>
+mariadb&gt; GRANT SELECT, LOCK TABLES ON mysql.* TO <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="c1"># add privileges to all databases that you want to backup!</span>
+mariadb&gt; FLUSH PRIVILEGES<span class="p">;</span>
+mariadb&gt; EXIT<span class="p">;</span>
+</code></pre></div></li>
+<li><a href="https://www.postgresql.org/docs/8.0/sql-createuser.html">PostgreSQL</a></li>
+<li><a href="https://docs.mongodb.com/manual/reference/method/db.createUser/">MongoDB</a></li>
+</ul>
+<p>Backups should also be scheduled using cronjob:</p>
+<div class="highlight"><pre><span></span><code># database / file backups at 2:50 / 3 am am every every day
+00 03 * * * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -f
+50 02 * * * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -d
+</code></pre></div>
                 
                   
                     
