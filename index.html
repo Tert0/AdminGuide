@@ -212,105 +212,12 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Overview
-        <span class="md-nav__icon md-icon"></span>
-      </label>
     
     <a href="." class="md-nav__link md-nav__link--active">
       Overview
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-your-services" class="md-nav__link">
-    Create your Services
-  </a>
-  
-    <nav class="md-nav" aria-label="Create your Services">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reverse-proxys" class="md-nav__link">
-    Reverse Proxy's
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#webserver" class="md-nav__link">
-    Webserver
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#databases" class="md-nav__link">
-    Databases
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    Tools
-  </a>
-  
-    <nav class="md-nav" aria-label="Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ctop" class="md-nav__link">
-    ctop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-network-viewer" class="md-nav__link">
-    Docker Network Viewer
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
-    Backup
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -794,89 +701,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-your-services" class="md-nav__link">
-    Create your Services
-  </a>
-  
-    <nav class="md-nav" aria-label="Create your Services">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reverse-proxys" class="md-nav__link">
-    Reverse Proxy's
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#webserver" class="md-nav__link">
-    Webserver
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#databases" class="md-nav__link">
-    Databases
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    Tools
-  </a>
-  
-    <nav class="md-nav" aria-label="Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ctop" class="md-nav__link">
-    ctop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-network-viewer" class="md-nav__link">
-    Docker Network Viewer
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backup" class="md-nav__link">
-    Backup
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -892,8 +718,6 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
-                
-                  <h1>Overview</h1>
                 
                 <p>This Admin Guide describes how I setup my servers using docker.</p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
@@ -987,36 +811,37 @@ games             <span class="m">192</span>.168.103.0/24
 <p><strong>I'm currently working on a new backup tool written in golang</strong>, this could be an alternative if you don't want to install the latest version of python on your server.</p>
 <p>Currently I use <a href="https://github.com/felbinger/pybackup">my python backup script</a>.</p>
 <p>First you need to install python3.8, because the latest version in the default repositories is <code>python 3.7.3</code> which won't work for my script.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">compile python3.8 from sources</label><div class="tabbed-content"></div>
-</div>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">compile python3.8 from sources</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>sudo apt-get install build-essential checkinstall libreadline-gplv2-dev <span class="se">\</span>
- libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev <span class="se">\</span>
- libc6-dev libbz2-dev libffi-dev zlib1g-dev
+  libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev <span class="se">\</span>
+  libc6-dev libbz2-dev libffi-dev zlib1g-dev
 
-    wget https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tgz
-    tar xzf Python-3.8.6.tgz
+wget https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tgz
+tar xzf Python-3.8.6.tgz
 
-    <span class="nb">cd</span> Python-3.8.6
-    ./configure --enable-optimizations --prefix<span class="o">=</span>/opt/python/3.8
-    make -j<span class="k">$(</span>nproc<span class="k">)</span>
-    sudo make altinstall
+<span class="nb">cd</span> Python-3.8.6
+./configure --enable-optimizations --prefix<span class="o">=</span>/opt/python/3.8
+make -j<span class="k">$(</span>nproc<span class="k">)</span>
+sudo make altinstall
 
-    <span class="nb">echo</span> <span class="s2">&quot;export PATH=/opt/python/3.8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span> &gt;&gt; /etc/profile.d/python3.8.sh
-    bash /etc/profile.d/python3.8.sh
-    <span class="sb">```</span>
-
-<span class="o">===</span> <span class="s2">&quot;install python3.8 from debian/testing&quot;</span>
-!!! warning <span class="s2">&quot;Warning&quot;</span>
-Due to the fact that this will add the debian/testing repositories to your system, this might <span class="nb">break</span> your system. Do **not** execute this on a productive system!
-<span class="sb">`</span>bash <span class="nb">echo</span> -e <span class="s1">&#39;\n# python3.8\ndeb [arch=amd64] http://deb.debian.org/debian/ testing main&#39;</span> <span class="se">\ </span><span class="p">|</span> sudo tee -a /etc/apt/sources.list <span class="nb">echo</span> <span class="s1">&#39;APT::Default-Release &quot;stable&quot;;&#39;</span> <span class="se">\ </span><span class="p">|</span> sudo tee /etc/apt/apt.conf.d/99defaultrelease sudo apt update sudo apt install -y -t testing python3.8 python3-pip <span class="sb">`</span>
-
-Afterwards you can clone the <span class="o">[</span>pybackup repository<span class="o">](</span>https://github.com/felbinger/pybackup<span class="o">)</span> to a place which is only writeable by root <span class="o">(</span>I recommend <span class="sb">`</span>/root/<span class="sb">`</span><span class="o">)</span> and install the reqirements from the <span class="sb">`</span>requirements.txt<span class="sb">`</span>:
-
-!!! warning <span class="s2">&quot;Security Warning&quot;</span>
-Due to the fact that the backup.py will be executed by root cronjob, the file should be only editable by root. Otherwise a lower privileged user, might exchange the python file or add a path <span class="o">(</span>e.g. <span class="sb">`</span>/etc/shadow<span class="sb">`</span><span class="o">)</span> to the backup configuration to gain higher privileges <span class="o">([</span>Privilege Escalation<span class="o">](</span>https://en.wikipedia.org/wiki/Privilege_escalation<span class="o">))</span>.
-
-<span class="sb">```</span>bash
-<span class="c1"># install git and clone repository</span>
+<span class="nb">echo</span> <span class="s2">&quot;export PATH=/opt/python/3.8/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span> &gt;&gt; /etc/profile.d/python3.8.sh
+bash /etc/profile.d/python3.8.sh
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">install python3.8 from debian/testing</label><div class="tabbed-content">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Due to the fact that this will add the debian/testing repositories to your system, this might break your system. Do <strong>not</strong> execute this on a productive system!
+<code>bash echo -e '\n# python3.8\ndeb [arch=amd64] http://deb.debian.org/debian/ testing main' \ | sudo tee -a /etc/apt/sources.list echo 'APT::Default-Release "stable";' \ | sudo tee /etc/apt/apt.conf.d/99defaultrelease sudo apt update sudo apt install -y -t testing python3.8 python3-pip</code></p>
+</div>
+<p>Afterwards you can clone the <a href="https://github.com/felbinger/pybackup">pybackup repository</a> to a place which is only writeable by root (I recommend <code>/root/</code>) and install the reqirements from the <code>requirements.txt</code>:</p>
+<div class="admonition warning">
+<p class="admonition-title">Security Warning</p>
+<p>Due to the fact that the backup.py will be executed by root cronjob, the file should be only editable by root. Otherwise a lower privileged user, might exchange the python file or add a path (e.g. <code>/etc/shadow</code>) to the backup configuration to gain higher privileges (<a href="https://en.wikipedia.org/wiki/Privilege_escalation">Privilege Escalation</a>).</p>
+</div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1"># install git and clone repository</span>
 sudo apt install -y git
 sudo git clone https://github.com/felbinger/pybackup /root/pybackup/
 sudo pip3 install -r /root/pybackup/requirements.txt
@@ -1029,27 +854,30 @@ vim /root/pybackup/.config.json
 
 <span class="c1"># run backup</span>
 $ python3.8 backup.py -df
+<span class="sb">````</span>
+
+I really suggest creating a separate database user which can only create backups.  
+Checkout the documentation <span class="k">for</span> your dbms:
+
+- <span class="o">[</span>MariaDB<span class="o">](</span>https://mariadb.com/kb/en/create-user/<span class="o">)</span>
+  <span class="sb">```</span>bash
+  <span class="c1"># example for mariadb (you need SELECT and LOCK TABLES permissions)</span>
+  $ sudo docker-compose <span class="nb">exec</span> mariadb <span class="s1">&#39;mysql -u root -pSECRET_PASSWORD&#39;</span>
+  mariadb&gt; CREATE USER <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED BY <span class="s1">&#39;SECRET_PASSWORD_FOR_BACKUP&#39;</span><span class="p">;</span>
+  mariadb&gt; GRANT SELECT, LOCK TABLES ON mysql.* TO <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+  <span class="c1"># add privileges to all databases that you want to backup!</span>
+  mariadb&gt; FLUSH PRIVILEGES<span class="p">;</span>
+  mariadb&gt; EXIT<span class="p">;</span>
+  <span class="sb">```</span>
+- <span class="o">[</span>PostgreSQL<span class="o">](</span>https://www.postgresql.org/docs/8.0/sql-createuser.html<span class="o">)</span>
+- <span class="o">[</span>MongoDB<span class="o">](</span>https://docs.mongodb.com/manual/reference/method/db.createUser/<span class="o">)</span>
+
+Backups should also be scheduled using cronjob:
 </code></pre></div>
-<p>I really suggest creating a separate database user which can only create backups.<br />
-Checkout the documentation for your dbms:</p>
-<ul>
-<li><a href="https://mariadb.com/kb/en/create-user/">MariaDB</a>
-  <div class="highlight"><pre><span></span><code><span class="c1"># example for mariadb (you need SELECT and LOCK TABLES permissions)</span>
-$ sudo docker-compose <span class="nb">exec</span> mariadb <span class="s1">&#39;mysql -u root -pSECRET_PASSWORD&#39;</span>
-mariadb&gt; CREATE USER <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED BY <span class="s1">&#39;SECRET_PASSWORD_FOR_BACKUP&#39;</span><span class="p">;</span>
-mariadb&gt; GRANT SELECT, LOCK TABLES ON mysql.* TO <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
-<span class="c1"># add privileges to all databases that you want to backup!</span>
-mariadb&gt; FLUSH PRIVILEGES<span class="p">;</span>
-mariadb&gt; EXIT<span class="p">;</span>
-</code></pre></div></li>
-<li><a href="https://www.postgresql.org/docs/8.0/sql-createuser.html">PostgreSQL</a></li>
-<li><a href="https://docs.mongodb.com/manual/reference/method/db.createUser/">MongoDB</a></li>
-</ul>
-<p>Backups should also be scheduled using cronjob:</p>
-<div class="highlight"><pre><span></span><code># database / file backups at 2:50 / 3 am am every every day
-00 03 * * * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -f
-50 02 * * * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -d
-</code></pre></div>
+<h1 id="database-file-backups-at-250-3-am-am-every-every-day">database / file backups at 2:50 / 3 am am every every day<a class="headerlink" href="#database-file-backups-at-250-3-am-am-every-every-day" title="Permanent link">&para;</a></h1>
+<p>00 03 * <em> * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -f
+50 02 * </em> * /usr/bin/python3.8 /root/pybackup/backup.py -c /root/pybackup/.config.json -d
+```</p>
                 
                   
                     
@@ -1058,7 +886,7 @@ mariadb&gt; EXIT<span class="p">;</span>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 27, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 31, 2020</span>
     
   </small>
 </div>
