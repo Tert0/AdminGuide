@@ -1007,15 +1007,15 @@ bash /etc/profile.d/python3.8.sh
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">install python3.8 from debian/testing</label><div class="tabbed-content">
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Due to the fact that this will add the debian/testing repositories to your system, this might break your system. Do <strong>not</strong> execute this on a productive system!
-<code>bash echo -e '\n# python3.8\ndeb [arch=amd64] http://deb.debian.org/debian/ testing main' \ | sudo tee -a /etc/apt/sources.list echo 'APT::Default-Release "stable";' \ | sudo tee /etc/apt/apt.conf.d/99defaultrelease sudo apt update sudo apt install -y -t testing python3.8 python3-pip</code></p>
+<p>Due to the fact that this will add the debian/testing repositories to your system, this might break your system. Do <strong>not</strong> execute this on a productive system!</p>
+</div>
+<p><code>bash echo -e '\n# python3.8\ndeb [arch=amd64] http://deb.debian.org/debian/ testing main' \ | sudo tee -a /etc/apt/sources.list echo 'APT::Default-Release "stable";' \ | sudo tee /etc/apt/apt.conf.d/99defaultrelease sudo apt update sudo apt install -y -t testing python3.8 python3-pip</code></p>
+</div>
 </div>
 <p>Afterwards you can clone the <a href="https://github.com/felbinger/pybackup">pybackup repository</a> to a place which is only writeable by root (I recommend <code>/root/</code>) and install the reqirements from the <code>requirements.txt</code>:</p>
 <div class="admonition warning">
 <p class="admonition-title">Security Warning</p>
 <p>Due to the fact that the backup.py will be executed by root cronjob, the file should be only editable by root. Otherwise a lower privileged user, might exchange the python file or add a path (e.g. <code>/etc/shadow</code>) to the backup configuration to gain higher privileges (<a href="https://en.wikipedia.org/wiki/Privilege_escalation">Privilege Escalation</a>).</p>
-</div>
-</div>
 </div>
 <div class="highlight"><pre><span></span><code><span class="c1"># install git and clone repository</span>
 sudo apt install -y git
