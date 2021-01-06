@@ -13,14 +13,14 @@
         <meta name="author" content="https://github.com/felbinger">
       
       
-        <link rel="canonical" href="https://felbinger.github.io/AdminGuide/services/hackmd/">
+        <link rel="canonical" href="https://felbinger.github.io/AdminGuide/services/jitsi/">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>HackMD - Admin Guide</title>
+        <title>Jitsi - Admin Guide</title>
       
     
     
@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#use-traefik" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,7 +102,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              HackMD
+              Jitsi
             
           </span>
         </div>
@@ -596,12 +601,14 @@
           
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" data-md-state="indeterminate" type="checkbox" id="nav-3-5" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
     
     <label class="md-nav__link" for="nav-3-5">
       Communication
@@ -646,11 +653,93 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../jitsi/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Jitsi
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Jitsi
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#use-traefik" class="md-nav__link">
+    Use Traefik
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-ldap-auth-backend" class="md-nav__link">
+    Use LDAP Auth Backend
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extend-your-jitsi-instance" class="md-nav__link">
+    Extend your Jitsi instance
+  </a>
+  
+    <nav class="md-nav" aria-label="Extend your Jitsi instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etherpad" class="md-nav__link">
+    Etherpad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jibri" class="md-nav__link">
+    Jibri
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-jvb-statictics-for-monitoring" class="md-nav__link">
+    Enable JVB Statictics (for monitoring)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -664,14 +753,12 @@
           
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-6" data-md-state="indeterminate" type="checkbox" id="nav-3-6" checked>
     
     <label class="md-nav__link" for="nav-3-6">
       Storage
@@ -716,18 +803,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../hackmd/" class="md-nav__link">
       HackMD
     </a>
-    
   </li>
 
         
@@ -774,35 +854,218 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#use-traefik" class="md-nav__link">
+    Use Traefik
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-ldap-auth-backend" class="md-nav__link">
+    Use LDAP Auth Backend
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extend-your-jitsi-instance" class="md-nav__link">
+    Extend your Jitsi instance
+  </a>
+  
+    <nav class="md-nav" aria-label="Extend your Jitsi instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etherpad" class="md-nav__link">
+    Etherpad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jibri" class="md-nav__link">
+    Jibri
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-jvb-statictics-for-monitoring" class="md-nav__link">
+    Enable JVB Statictics (for monitoring)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/felbinger/AdminGuide/edit/master/docs/services/hackmd.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/felbinger/AdminGuide/edit/master/docs/services/jitsi.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>HackMD</h1>
+                  <h1>Jitsi</h1>
                 
-                <p><a href="https://hackmd.io/">hackmd website</a>
-<a href="https://hub.docker.com/r/hackmdio/hackmd/">hackmd on dockerhub</a><br />
-<div class="highlight"><pre><span></span><code>  <span class="nt">hackmd</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hackmdio/hackmd</span>
-    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
-    <span class="nt">labels</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.enable=true&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.services.srv_hackmd.loadbalancer.server.port=3000&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.routers.r_hackmd.rule=Host(`md.domain.de`)&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.routers.r_hackmd.entrypoints=websecure&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.routers.r_hackmd.tls=true&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.routers.r_hackmd.tls.certresolver=myresolver&quot;</span>
-    <span class="nt">environment</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">CMD_DB_URL=mysql://hackmd:S3cr3T@mariadb/hackmd</span>
-    <span class="nt">networks</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proxy</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
+                <p>Checkout the <a href="https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker">official guide</a></p>
+<p>I suggest you create a new stack for jitsi:
+<div class="highlight"><pre><span></span><code><span class="c1"># create directories</span>
+mkdir -p /home/admin/<span class="o">{</span>services,images<span class="o">}</span>/jitsi/ /srv/jitsi
+
+<span class="c1"># create stack network</span>
+docker network inspect <span class="si">${</span><span class="nv">name</span><span class="si">}</span> &gt;/dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="se">\</span>
+docker network create --subnet <span class="m">192</span>.168.110.0/24 jitsi
+</code></pre></div></p>
+<p>Afterwars you can download the required files from the <a href="https://github.com/jitsi/docker-jitsi-meet">jitsi/docker-jitsi-meet</a> github repository
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/jitsi/docker-jitsi-meet/master/docker-compose.yml -O /home/admin/services/jitsi/docker-compose.yml
+wget https://raw.githubusercontent.com/jitsi/docker-jitsi-meet/master/env.example -O /home/admin/services/jitsi/.env
+
+# generate new secrets
+cd /home/admin/services/jitsi/
+curl https://raw.githubusercontent.com/jitsi/docker-jitsi-meet/master/gen-passwords.sh | bash
+
+# change configuration directory
+sed -i &#39;s|CONFIG=.*|CONFIG=/srv/jitsi|g&#39; .env
+</code></pre></div></p>
+<p>Afterwards you may configure the .env file.</p>
+<h2 id="use-traefik">Use Traefik<a class="headerlink" href="#use-traefik" title="Permanent link">&para;</a></h2>
+<p>Modify web services:
+* remove port forwardings
+* add traefik labels
+* connect network: proxy</p>
+<p>After your changes the web service should look like this:
+<div class="highlight"><pre><span></span><code>    <span class="nt">web</span><span class="p">:</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jitsi/web:latest</span>
+        <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${RESTART_POLICY}</span>
+        <span class="c1"># removed ports forwarding</span>
+        <span class="c1"># added traefik labels</span>
+        <span class="nt">labels</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.enable=true&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.services.srv_jitsi.loadbalancer.server.port=80&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.routers.r_jitsi.rule=Host(`jitsi.domain.de`)&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.routers.r_jitsi.entrypoints=websecure&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.routers.r_jitsi.tls.certresolver=myresolver&quot;</span>
+        <span class="nt">volumes</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${CONFIG}/web:/config:Z</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${CONFIG}/transcripts:/usr/share/jitsi-meet/transcripts:Z</span>
+        <span class="nt">environment</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ENABLE_LETSENCRYPT</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TOKEN_AUTH_URL</span>
+        <span class="nt">networks</span><span class="p">:</span>
+            <span class="c1"># added proxy network</span>
+            <span class="nt">proxy</span><span class="p">:</span>
+            <span class="nt">meet.jitsi</span><span class="p">:</span>
+                <span class="nt">aliases</span><span class="p">:</span>
+                    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${XMPP_DOMAIN}</span>
+</code></pre></div></p>
+<h2 id="use-ldap-auth-backend">Use LDAP Auth Backend<a class="headerlink" href="#use-ldap-auth-backend" title="Permanent link">&para;</a></h2>
+<p>Modify prosody service:
+* connect network: database
+* configure ldap credentials</p>
+<p>After your changes the prosody service should look like this:
+<div class="highlight"><pre><span></span><code>    <span class="c1"># XMPP server</span>
+    <span class="nt">prosody</span><span class="p">:</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jitsi/prosody:latest</span>
+        <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${RESTART_POLICY}</span>
+        <span class="nt">expose</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;5222&#39;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;5347&#39;</span>
+            <span class="p p-Indicator">-</span> <span class="s">&#39;5280&#39;</span>
+        <span class="nt">volumes</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${CONFIG}/prosody/config:/config:Z</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${CONFIG}/prosody/prosody-plugins-custom:/prosody-plugins-custom:Z</span>
+        <span class="nt">environment</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AUTH_TYPE</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TZ</span>
+        <span class="nt">networks</span><span class="p">:</span>
+            <span class="nt">database</span><span class="p">:</span>
+            <span class="nt">meet.jitsi</span><span class="p">:</span>
+                <span class="nt">aliases</span><span class="p">:</span>
+                    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${XMPP_SERVER}</span>
+</code></pre></div></p>
+<p>The LDAP section of your <code>.env</code> should look like this (the not included keys are irrelevant if you don't use ldaps inside the docker network):
+<div class="highlight"><pre><span></span><code><span class="c1"># LDAP url for connection</span>
+<span class="nv">LDAP_URL</span><span class="o">=</span>ldap://ldap
+
+<span class="c1"># LDAP base DN. Can be empty</span>
+<span class="nv">LDAP_BASE</span><span class="o">=</span><span class="nv">DC</span><span class="o">=</span>domain,DC<span class="o">=</span>com
+
+<span class="c1"># LDAP user DN. Do not specify this parameter for the anonymous bind</span>
+<span class="nv">LDAP_BINDDN</span><span class="o">=</span><span class="nv">CN</span><span class="o">=</span>admin,DC<span class="o">=</span>domain,DC<span class="o">=</span>com
+
+<span class="c1"># LDAP user password. Do not specify this parameter for the anonymous bind</span>
+<span class="nv">LDAP_BINDPW</span><span class="o">=</span>S3cr3T
+
+<span class="c1"># LDAP filter. Tokens example:</span>
+<span class="c1"># %1-9 - if the input key is user@mail.domain.com, then %1 is com, %2 is domain and %3 is mail</span>
+<span class="c1"># %s - %s is replaced by the complete service string</span>
+<span class="c1"># %r - %r is replaced by the complete realm string</span>
+<span class="c1">#LDAP_FILTER=(sAMAccountName=%u)</span>
+<span class="c1"># This filter only grants members of the jitsi group access</span>
+<span class="nv">LDAP_FILTER</span><span class="o">=(</span><span class="p">&amp;</span><span class="o">(</span><span class="nv">objectclass</span><span class="o">=</span>person<span class="o">)(</span><span class="p">&amp;</span><span class="o">(</span><span class="nv">memberof</span><span class="o">=</span><span class="nv">cn</span><span class="o">=</span>jitsi,ou<span class="o">=</span>groups,dc<span class="o">=</span>domain,dc<span class="o">=</span>de<span class="o">))(</span><span class="nv">uid</span><span class="o">=</span>%u<span class="o">))</span>
+
+<span class="c1"># ...</span>
+</code></pre></div></p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>All configuration are stored in the <code>/srv/jitsi</code> directory:
+* You can't modify <code>/srv/jitsi/web/config.js</code>, because it will be generated on container start, but you can update the attributes in the .env file
+* You can update the settings of your interface by modifying <code>/srv/jitsi/web/interface_config.js</code></p>
+<h2 id="extend-your-jitsi-instance">Extend your Jitsi instance<a class="headerlink" href="#extend-your-jitsi-instance" title="Permanent link">&para;</a></h2>
+<h3 id="etherpad">Etherpad<a class="headerlink" href="#etherpad" title="Permanent link">&para;</a></h3>
+<p>Etherpad allows you to edit documents collaboratively in real-time.</p>
+<p>You can find the <a href="https://github.com/jitsi/docker-jitsi-meet/blob/master/etherpad.yml">etherpad.yml</a> in which the service is defined, in the github repo.
+I suggest you copy the etherpad service to your <code>docker-compose.yml</code>.</p>
+<h3 id="jibri">Jibri<a class="headerlink" href="#jibri" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://github.com/jitsi/jibri">Jitsi Broadcasting Infrastructure</a> provides services for recording or streaming.</p>
+<p>You can find the <a href="https://github.com/jitsi/docker-jitsi-meet/blob/master/jibri.yml">jibri.yml</a> in which the service is defined, in the github repo.<br />
+I suggest you copy the jibri service to your <code>docker-compose.yml</code>.</p>
+<h3 id="enable-jvb-statictics-for-monitoring">Enable JVB Statictics (for monitoring)<a class="headerlink" href="#enable-jvb-statictics-for-monitoring" title="Permanent link">&para;</a></h3>
+<p>You can enable the colibri api of the jvb service by simply comment out JVB_ENABLE_APIS in the .env file.
+<div class="highlight"><pre><span></span><code><span class="c1"># A comma separated list of APIs to enable when the JVB is started [default: none]</span>
+<span class="c1"># See https://github.com/jitsi/jitsi-videobridge/blob/master/doc/rest.md for more information</span>
+<span class="nv">JVB_ENABLE_APIS</span><span class="o">=</span>rest,colibri
+</code></pre></div></p>
+<p>You can now request the statistics from the api:
+<div class="highlight"><pre><span></span><code><span class="nv">ip</span><span class="o">=</span><span class="k">$(</span>docker inspect jitsi_jvb_1 <span class="p">|</span> jq <span class="s2">&quot;.[0].NetworkSettings.Networks.jitsi.IPAddress&quot;</span> <span class="p">|</span> tr -d <span class="s1">&#39;&quot;&#39;</span><span class="k">)</span>
+curl -s <span class="s2">&quot;http://</span><span class="si">${</span><span class="nv">ip</span><span class="si">}</span><span class="s2">:8080/colibri/stats&quot;</span> <span class="p">|</span> jq
 </code></pre></div></p>
                 
                   
@@ -812,7 +1075,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 30, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 6, 2021</span>
     
   </small>
 </div>
@@ -835,7 +1098,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../sharelatex/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../matrix/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -844,19 +1107,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                ShareLaTeX
+                Matrix
               </div>
             </div>
           </a>
         
         
-          <a href="../calibre/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../syncthing/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Calibre
+                Syncthing
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
