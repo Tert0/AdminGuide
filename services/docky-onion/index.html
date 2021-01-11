@@ -13,21 +13,21 @@
         <meta name="author" content="https://github.com/felbinger">
       
       
-        <link rel="canonical" href="https://felbinger.github.io/AdminGuide/installation/">
+        <link rel="canonical" href="https://felbinger.github.io/AdminGuide/services/docky-onion/">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
       
-        <title>Base - Admin Guide</title>
+        <title>docky-onion - Admin Guide</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#base" class="md-skip">
+        <a href="#tor-hidden-services" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Base
+              docky-onion
             
           </span>
         </div>
@@ -207,7 +207,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." class="md-nav__link">
+    <a href="../.." class="md-nav__link">
       Overview
     </a>
   </li>
@@ -218,16 +218,14 @@
       
 
 
-  
-
 
   
     
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" data-md-state="indeterminate" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Installation
@@ -246,100 +244,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Base
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../installation/" class="md-nav__link">
       Base
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#base" class="md-nav__link">
-    Base
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#change-hostname-optional" class="md-nav__link">
-    Change Hostname [optional]
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-admin-group" class="md-nav__link">
-    The Admin Group
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-users" class="md-nav__link">
-    Create Users
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-ssh-keys" class="md-nav__link">
-    Setup SSH Keys
-  </a>
-  
-    <nav class="md-nav" aria-label="Setup SSH Keys">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-ssh-keys" class="md-nav__link">
-    Create SSH Keys
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setup-ssh-keys-on-the-server" class="md-nav__link">
-    Setup SSH Keys on the server
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#securing-the-ssh-server" class="md-nav__link">
-    Securing the SSH Server
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -350,7 +259,7 @@
 
 
   <li class="md-nav__item">
-    <a href="dns/" class="md-nav__link">
+    <a href="../../installation/dns/" class="md-nav__link">
       Configure DNS
     </a>
   </li>
@@ -363,7 +272,7 @@
 
 
   <li class="md-nav__item">
-    <a href="docker/" class="md-nav__link">
+    <a href="../../installation/docker/" class="md-nav__link">
       Docker
     </a>
   </li>
@@ -376,7 +285,7 @@
 
 
   <li class="md-nav__item">
-    <a href="stack-logic/" class="md-nav__link">
+    <a href="../../installation/stack-logic/" class="md-nav__link">
       Stack Logic
     </a>
   </li>
@@ -392,14 +301,16 @@
       
 
 
+  
+
 
   
     
   
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" data-md-state="indeterminate" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Services
@@ -418,12 +329,14 @@
           
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" data-md-state="indeterminate" type="checkbox" id="nav-3-1" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
     
     <label class="md-nav__link" for="nav-3-1">
       Proxies
@@ -444,7 +357,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/traefik/" class="md-nav__link">
+    <a href="../traefik/" class="md-nav__link">
       Traefik
     </a>
   </li>
@@ -457,7 +370,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/nginx-proxy/" class="md-nav__link">
+    <a href="../nginx-proxy/" class="md-nav__link">
       nginx/proxy
     </a>
   </li>
@@ -468,11 +381,45 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../services/docky-onion/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        docky-onion
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       docky-onion
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tor-hidden-services" class="md-nav__link">
+    Tor Hidden Services
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -512,7 +459,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/nginx/" class="md-nav__link">
+    <a href="../nginx/" class="md-nav__link">
       nginx
     </a>
   </li>
@@ -525,7 +472,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/httpd/" class="md-nav__link">
+    <a href="../httpd/" class="md-nav__link">
       httpd
     </a>
   </li>
@@ -538,7 +485,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/httpd-php/" class="md-nav__link">
+    <a href="../httpd-php/" class="md-nav__link">
       httpd with php
     </a>
   </li>
@@ -580,7 +527,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/mariadb/" class="md-nav__link">
+    <a href="../mariadb/" class="md-nav__link">
       MariaDB
     </a>
   </li>
@@ -593,7 +540,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/mongodb/" class="md-nav__link">
+    <a href="../mongodb/" class="md-nav__link">
       MongoDB
     </a>
   </li>
@@ -606,7 +553,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/postgresql/" class="md-nav__link">
+    <a href="../postgresql/" class="md-nav__link">
       PostgreSQL
     </a>
   </li>
@@ -619,7 +566,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/redis/" class="md-nav__link">
+    <a href="../redis/" class="md-nav__link">
       Redis
     </a>
   </li>
@@ -632,7 +579,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/openldap/" class="md-nav__link">
+    <a href="../openldap/" class="md-nav__link">
       OpenLDAP
     </a>
   </li>
@@ -674,7 +621,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/minecraft/" class="md-nav__link">
+    <a href="../minecraft/" class="md-nav__link">
       Minecraft
     </a>
   </li>
@@ -687,7 +634,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/arma3/" class="md-nav__link">
+    <a href="../arma3/" class="md-nav__link">
       Arma 3 Server
     </a>
   </li>
@@ -729,7 +676,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/teamspeak/" class="md-nav__link">
+    <a href="../teamspeak/" class="md-nav__link">
       Teamspeak 3 + Sinusbot
     </a>
   </li>
@@ -742,7 +689,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/matrix/" class="md-nav__link">
+    <a href="../matrix/" class="md-nav__link">
       Matrix
     </a>
   </li>
@@ -755,7 +702,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/jitsi/" class="md-nav__link">
+    <a href="../jitsi/" class="md-nav__link">
       Jitsi
     </a>
   </li>
@@ -797,7 +744,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/syncthing/" class="md-nav__link">
+    <a href="../syncthing/" class="md-nav__link">
       Syncthing
     </a>
   </li>
@@ -810,7 +757,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/sharelatex/" class="md-nav__link">
+    <a href="../sharelatex/" class="md-nav__link">
       ShareLaTeX
     </a>
   </li>
@@ -823,7 +770,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/hackmd/" class="md-nav__link">
+    <a href="../hackmd/" class="md-nav__link">
       HackMD
     </a>
   </li>
@@ -836,7 +783,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/calibre/" class="md-nav__link">
+    <a href="../calibre/" class="md-nav__link">
       Calibre
     </a>
   </li>
@@ -854,7 +801,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../services/monitoring/" class="md-nav__link">
+    <a href="../monitoring/" class="md-nav__link">
       Monitoring
     </a>
   </li>
@@ -888,63 +835,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#base" class="md-nav__link">
-    Base
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#change-hostname-optional" class="md-nav__link">
-    Change Hostname [optional]
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-admin-group" class="md-nav__link">
-    The Admin Group
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-users" class="md-nav__link">
-    Create Users
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-ssh-keys" class="md-nav__link">
-    Setup SSH Keys
-  </a>
-  
-    <nav class="md-nav" aria-label="Setup SSH Keys">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-ssh-keys" class="md-nav__link">
-    Create SSH Keys
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setup-ssh-keys-on-the-server" class="md-nav__link">
-    Setup SSH Keys on the server
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#securing-the-ssh-server" class="md-nav__link">
-    Securing the SSH Server
+  <a href="#tor-hidden-services" class="md-nav__link">
+    Tor Hidden Services
   </a>
   
 </li>
@@ -961,167 +853,40 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/felbinger/AdminGuide/edit/master/docs/installation/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/felbinger/AdminGuide/edit/master/docs/services/docky-onion.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Base</h1>
+                  <h1>docky-onion</h1>
                 
-                <h2 id="base">Base<a class="headerlink" href="#base" title="Permanent link">&para;</a></h2>
-<p>First we update the package lists, kernel and other distribution specific stuff.
-<br>
-Then we install some tools that are needed for this guide.
-<div class="highlight"><pre><span></span><code>apt-get update
-apt-get -y dist-upgrade
-apt-get -y install apt sudo curl nano
-</code></pre></div></p>
-<h2 id="change-hostname-optional">Change Hostname [optional]<a class="headerlink" href="#change-hostname-optional" title="Permanent link">&para;</a></h2>
-<p>In most cases, your hosting provider gave your machine an ugly hostname.
-Just change it in the files <code>/etc/hostname</code> and <code>/etc/hosts</code> to your new one according to the following example:
-<div class="highlight"><pre><span></span><code><span class="c1"># /etc/hostname</span>
-&lt;hostname&gt;
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># /etc/hosts</span>
+                <h2 id="tor-hidden-services">Tor Hidden Services<a class="headerlink" href="#tor-hidden-services" title="Permanent link">&para;</a></h2>
+<p>To provide <a href="https://2019.www.torproject.org/docs/onion-services">tor hidden services</a> through docker you can use <a href="https://github.com/use-to/docky-onion">docky-onion</a> to make any of your services accessible through <a href="https://www.torproject.org/">tor</a>. Here is an example <code>docker-compose.yml</code> to serve an <a href="https://www.nginx.com/">nginx</a> as hidden service on port <code>80</code> and <code>8080</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3.9&quot;</span>
 
-<span class="m">127</span>.0.0.1         localhost
-<span class="m">127</span>.0.1.1         &lt;fqdn.domain.tld&gt; &lt;hostname&gt;  <span class="c1"># &lt;--</span>
-&lt;ipv4&gt;            &lt;fqdn.domain.tld&gt; &lt;hostname&gt;  <span class="c1"># &lt;--</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">docky-onion</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">useto/docky-onion</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="c1"># this forwards 80 and 8080 to web:80</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;TOR_HIDDEN_SERVICE_WEB=80</span><span class="nv"> </span><span class="s">web:80;8080</span><span class="nv"> </span><span class="s">web:80&quot;</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;docky-onion:/var/lib/tor/hidden_services&quot;</span>
 
-<span class="c1"># The following lines are desirable for IPv6 capable hosts</span>
-::1               localhost ip6-localhost ip6-loopback
-ff02::1           ip6-allnodes
-ff02::2           ip6-allrouters
-</code></pre></div></p>
-<div class="admonition warning">
-<p>IPv6-FQDN is missing, although I never set up a server using ipv6.</p>
-</div>
-<p>In this case I decided to use the hostname <code>server</code> and assign the fully qualified domain name <code>fqdn.domain.tld</code> to it.
-To apply the changes, you need to restart the server.</p>
-<h2 id="the-admin-group">The Admin Group<a class="headerlink" href="#the-admin-group" title="Permanent link">&para;</a></h2>
-<p>On every server that is managed by me, there exists an <code>admin</code> group that has access to almost all service configuration files.
-This group is used to easily manage many administrators on one server.
-<div class="highlight"><pre><span></span><code>groupadd -g <span class="m">997</span> admin
-mkdir /home/admin
-chown -R root:admin /home/admin
-chmod -R <span class="m">775</span> /home/admin
-</code></pre></div></p>
-<h2 id="create-users">Create Users<a class="headerlink" href="#create-users" title="Permanent link">&para;</a></h2>
-<p>You should create at least one user, and use it instead of the <code>root</code> user.
-Let's create a new user called <code>user</code> and add him to the groups <code>sudo</code> and <code>admin</code>.</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">default</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>adduser user
-usermod -aG sudo,admin user
-</code></pre></div>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">any</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>adduser &lt;user&gt;
-usermod -aG sudo,admin &lt;user&gt;
-</code></pre></div>
-</div>
-</div>
-<div class="admonition note">
-<p>You can repeat this part for any other user who needs administrative access.</p>
-</div>
-<h2 id="setup-ssh-keys">Setup SSH Keys<a class="headerlink" href="#setup-ssh-keys" title="Permanent link">&para;</a></h2>
-<p>SSH keys are a fundamental for secure connection to your server.</p>
-<h3 id="create-ssh-keys">Create SSH Keys<a class="headerlink" href="#create-ssh-keys" title="Permanent link">&para;</a></h3>
-<p>If you don't already have an SSH Key it is recommended to create one:</p>
-<div class="tabbed-set" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">rsa</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa
-</code></pre></div>
-</div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">dsa</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>ssh-keygen -t dsa
-</code></pre></div>
-</div>
-<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">ecdsa</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>ssh-keygen -t ecdsa
-</code></pre></div>
-</div>
-<input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><label for="__tabbed_2_4">ed25519</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>ssh-keygen -t ed25519
-</code></pre></div>
-</div>
-<input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><label for="__tabbed_2_5">other</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="c1"># a list off all types, witch are supportet by your system: (second line)</span>
-ssh-keygen -h
+  <span class="nt">web</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">docky-onion</span> 
 
-ssh-keygen -t &lt;type&gt;
+<span class="nt">volumes</span><span class="p">:</span>
+  <span class="nt">docky-onion</span><span class="p">:</span>
 </code></pre></div>
-</div>
-</div>
-<h3 id="setup-ssh-keys-on-the-server">Setup SSH Keys on the server<a class="headerlink" href="#setup-ssh-keys-on-the-server" title="Permanent link">&para;</a></h3>
-<p>There are multiple options to add your public keys to the file <code>~/.ssh/authorized_keys</code>:</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Client Side</label><div class="tabbed-content">
-<p>One option is to use <code>ssh-copy-id</code> on the client machine (and authenticate yourself with for example a password),
-and the ssh client automatically copy the keys there.</p>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">default key</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>ssh-copy-id &lt;user&gt;@&lt;ip&gt;
+<p>After you start the containers using <code>docker-compose up -d</code> docky-onion will proxy nginx into the tor network. Now we need to lookup the <code>.onion</code>-address using <code>docker-compose exec docky-onion lookup</code>. This will print something like the following:</p>
+<div class="highlight"><pre><span></span><code>WEB =&gt; j3c7wmyv6b3q3uvowetwwygb7h57k2bjhtnwp2zfamda2ij2vanyhmid.onion
 </code></pre></div>
-</div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">specific key</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>ssh-copy-id -i &lt;keyfile&gt; &lt;user&gt;@&lt;ip&gt;
-</code></pre></div>
-</div>
-</div>
-<div class="admonition note">
-<p><code>ssh-copy-id</code> uses the description of your public key.</p>
-</div>
-</div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Server Side</label><div class="tabbed-content">
-<p>Another options is to append your public key manually to the <code>~/.ssh/authorized_keys</code> file in the following format <code>ssh-&lt;type&gt; &lt;public_key&gt; [description]</code>:</p>
-<div class="tabbed-set" data-tabs="5:5"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">rsa</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;ssh-rsa &lt;key&gt; [description]&quot;</span> &gt;&gt; ~/.ssh/authorized_keys
-</code></pre></div>
-</div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">dsa</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;ssh-dsa &lt;key&gt; [description]&quot;</span> &gt;&gt; ~/.ssh/authorized_keys
-</code></pre></div>
-</div>
-<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">ecdsa</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;ssh-ecdsa &lt;key&gt; [description]&quot;</span> &gt;&gt; ~/.ssh/authorized_keys
-</code></pre></div>
-</div>
-<input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><label for="__tabbed_5_4">ed25519</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;ssh-ed25519 &lt;key&gt; [description]&quot;</span> &gt;&gt; ~/.ssh/authorized_keys
-</code></pre></div>
-</div>
-<input id="__tabbed_5_5" name="__tabbed_5" type="radio" /><label for="__tabbed_5_5">other</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;ssh-&lt;type&gt; &lt;key&gt; [description]&quot;</span> &gt;&gt; ~/.ssh/authorized_keys
-</code></pre></div>
-</div>
-</div>
-<div class="admonition warning">
-<p>Note that you must be logged in as the user for whom the SSH key will be added.</p>
-</div>
-</div>
-</div>
-<h2 id="securing-the-ssh-server">Securing the SSH Server<a class="headerlink" href="#securing-the-ssh-server" title="Permanent link">&para;</a></h2>
-<p>After we successfully logged in using one of our user accounts, we can reconfigure ssh.
-We set the following values:
-<div class="highlight"><pre><span></span><code><span class="c1"># /etc/ssh/sshd_config</span>
-
-<span class="c1"># disallow authentication with passwords</span>
-PasswordAuthentication no
-
-<span class="c1"># disallow login via root</span>
-PermitRootLogin no
-
-<span class="c1"># maximum number of authentication attempts</span>
-MaxAuthTries <span class="m">3</span>
-
-<span class="c1"># maximum number of sessions of one user that can be logged in at the same time</span>
-MaxSessions <span class="m">5</span>
-</code></pre></div></p>
-<div class="admonition info">
-<p>Don't forget to restart your SSH Server:
-<div class="highlight"><pre><span></span><code>sudo systemctl restart ssh
-</code></pre></div></p>
-</div>
-<div class="admonition warning">
-<p>Make sure you can log in using your SSH private key, otherwise you are not able to login again after the next step!</p>
-</div>
+<p>Please note that you will get multiple <code>.onion</code>-address for each service you want to serve.</p>
                 
                   
                     
@@ -1130,7 +895,7 @@ MaxSessions <span class="m">5</span>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 29, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 11, 2021</span>
     
   </small>
 </div>
@@ -1153,7 +918,7 @@ MaxSessions <span class="m">5</span>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../nginx-proxy/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1162,19 +927,19 @@ MaxSessions <span class="m">5</span>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Overview
+                nginx/proxy
               </div>
             </div>
           </a>
         
         
-          <a href="dns/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../nginx/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Configure DNS
+                nginx
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -1201,20 +966,20 @@ MaxSessions <span class="m">5</span>
       
     </div>
     
-      <script src="../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
-          base: "..",
+          base: "../..",
           features: ['search.suggest', 'search.highlight', 'navigation.expand', 'navigation.instant', 'navigation.sections'],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
       
-        <script src="../js/config.js"></script>
+        <script src="../../js/config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
