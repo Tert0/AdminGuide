@@ -1041,7 +1041,7 @@ This will help us, because if we do not specify a network in the service section
   <span class="nb">echo</span> -e <span class="s2">&quot;      name: </span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
 
   <span class="c1"># define helper networks</span>
-  <span class="k">for</span> helper_name in <span class="si">${</span><span class="p">!HELPER[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+  <span class="k">for</span> helper_name <span class="k">in</span> <span class="si">${</span><span class="p">!HELPER[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
     <span class="nb">echo</span> -e <span class="s2">&quot;  </span><span class="si">${</span><span class="nv">helper_name</span><span class="si">}</span><span class="s2">:&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
     <span class="nb">echo</span> -e <span class="s2">&quot;    external:&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
     <span class="nb">echo</span> -e <span class="s2">&quot;      name: </span><span class="si">${</span><span class="nv">helper_name</span><span class="si">}</span><span class="s2">&quot;</span> &gt;&gt;<span class="si">${</span><span class="nv">compose</span><span class="si">}</span>
@@ -1056,19 +1056,19 @@ groupadd -g <span class="si">${</span><span class="nv">ADM_GID</span><span class
 mkdir <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>
 chown -R root:<span class="si">${</span><span class="nv">ADM_NAME</span><span class="si">}</span> <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>
 chmod -R <span class="m">775</span> <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>
-<span class="k">for</span> user in <span class="si">${</span><span class="nv">ADM_USERS</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+<span class="k">for</span> user <span class="k">in</span> <span class="si">${</span><span class="nv">ADM_USERS</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
   adduser <span class="si">${</span><span class="nv">user</span><span class="si">}</span> <span class="si">${</span><span class="nv">ADM_NAME</span><span class="si">}</span>
 <span class="k">done</span>
 
 <span class="c1"># create helper networks</span>
-<span class="k">for</span> name in <span class="si">${</span><span class="p">!HELPER[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+<span class="k">for</span> name <span class="k">in</span> <span class="si">${</span><span class="p">!HELPER[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
   <span class="nv">subnet</span><span class="o">=</span><span class="si">${</span><span class="nv">HELPER</span><span class="p">[</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="p">]</span><span class="si">}</span>
   docker_network_create <span class="si">${</span><span class="nv">name</span><span class="si">}</span> <span class="si">${</span><span class="nv">subnet</span><span class="si">}</span>
 <span class="k">done</span>
 
 <span class="c1"># create stack logic</span>
 mkdir -p <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>/<span class="o">{</span>services,images,tools,docs<span class="o">}</span>/
-<span class="k">for</span> name in <span class="si">${</span><span class="p">!STACKS[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+<span class="k">for</span> name <span class="k">in</span> <span class="si">${</span><span class="p">!STACKS[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
   <span class="nv">subnet</span><span class="o">=</span><span class="si">${</span><span class="nv">STACKS</span><span class="p">[</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="p">]</span><span class="si">}</span>
   mkdir -p <span class="si">${</span><span class="nv">ADM_HOME</span><span class="si">}</span>/<span class="o">{</span>services,images<span class="o">}</span>/<span class="si">${</span><span class="nv">name</span><span class="si">}</span>/
   mkdir -p <span class="s2">&quot;/srv/</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">/&quot;</span>
