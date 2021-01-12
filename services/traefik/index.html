@@ -1046,7 +1046,7 @@
 <p>We are going to add a new router to our static service, which will provide files for download, behind an basic auth.
 First we have to extend our traefik service, with the htpasswd file for the service. This can be done by simply adding the following volume:
 <div class="highlight"><pre><span></span><code><span class="nn">...</span>
-<span class="l l-Scalar l-Scalar-Plain">volumes</span>
+<span class="nt">volumes</span><span class="p">:</span>
   <span class="l l-Scalar l-Scalar-Plain">...</span>
   <span class="l l-Scalar l-Scalar-Plain">- &quot;/srv/main/traefik/webfiles.htpasswd:/htpasswd/webfiles&quot;</span>
   <span class="l l-Scalar l-Scalar-Plain">...</span>
@@ -1086,11 +1086,11 @@ htpasswd -c /srv/main/traefik/webfiles.htpasswd -c &lt;username&gt;
 <span class="p">}</span>
 </code></pre></div></p>
 <p>Don't forget to add the created configuration to the volume section of the static service:
-<div class="highlight"><pre><span></span><code>...
-volumes:
-  ...
-  - &quot;/srv/main/static/nginx.conf:/etc/nginx/conf.d/default.conf&quot;
-...
+<div class="highlight"><pre><span></span><code><span class="nn">...</span>
+<span class="nt">volumes</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">...</span>
+  <span class="l l-Scalar l-Scalar-Plain">- &quot;/srv/main/static/nginx.conf:/etc/nginx/conf.d/default.conf&quot;</span>
+<span class="nn">...</span>
 </code></pre></div></p>
 <h3 id="redirect-middleware">Redirect Middleware<a class="headerlink" href="#redirect-middleware" title="Permanent link">&para;</a></h3>
 <p>You can also redirect a domain directly to another resource (e.g. your external webinterface of your mailserver):
