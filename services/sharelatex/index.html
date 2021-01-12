@@ -69,11 +69,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#installation-of-texlive-full" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -729,36 +724,9 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        ShareLaTeX
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
     <a href="./" class="md-nav__link md-nav__link--active">
       ShareLaTeX
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation-of-texlive-full" class="md-nav__link">
-    Installation of texlive-full
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -818,35 +786,6 @@
                 </div>
               </div>
             
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation-of-texlive-full" class="md-nav__link">
-    Installation of texlive-full
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
             
           
           <div class="md-content">
@@ -922,7 +861,9 @@
     <span class="nt">networks</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
 </code></pre></div></p>
-<h3 id="installation-of-texlive-full">Installation of texlive-full<a class="headerlink" href="#installation-of-texlive-full" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p>If you start the container using docker-compose, the image will be commited with all environment variables and labels.</p>
+</div>
 <ol>
 <li>
 <p>Create admin user
@@ -952,7 +893,7 @@ screen -AmdS latex-installation &#39;docker-compose exec paper tlmgr install sch
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 12, 2021</span>
     
   </small>
 </div>
