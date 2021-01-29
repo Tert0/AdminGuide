@@ -302,14 +302,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" data-md-state="indeterminate" type="checkbox" id="nav-3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
       
       <label class="md-nav__link" for="nav-3">
         Services
@@ -594,12 +596,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" data-md-state="indeterminate" type="checkbox" id="nav-3-5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
       
       <label class="md-nav__link" for="nav-3-5">
         Communication
@@ -633,6 +637,65 @@
       <a href="../matrix/" class="md-nav__link">
         Matrix
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Element
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Element
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#element-webclient" class="md-nav__link">
+    Element WebClient
+  </a>
+  
+    <nav class="md-nav" aria-label="Element WebClient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -780,8 +843,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configjson" class="md-nav__link">
-    Config.json
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
   
 </li>
@@ -811,14 +874,12 @@
                   <h1>Element</h1>
                 
                 <h2 id="element-webclient">Element WebClient<a class="headerlink" href="#element-webclient" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3.9&quot;</span>
-
-<span class="nt">services</span><span class="p">:</span>
-  <span class="nt">element</span><span class="p">:</span>   
+<p>The Element web client can be used by <a href="../matrix/">Matrix</a>.</p>
+<div class="highlight"><pre><span></span><code>  <span class="nt">element</span><span class="p">:</span>   
     <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vectorim/element-web</span>
     <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
     <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;/srv/comms/element/data/config.json:/app/conig.json&#39;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;/srv/comms/element/data/config.json:/app/conig.json&quot;</span>
     <span class="nt">labels</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.enable=true&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.http.services.srv_element.loadbalancer.server.port=80&quot;</span>
@@ -829,12 +890,13 @@
     <span class="nt">networks</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proxy</span>    
 </code></pre></div>
-<h3 id="configjson">Config.json<a class="headerlink" href="#configjson" title="Permanent link">&para;</a></h3>
-<p>First create a config.json for this you can use the following command:</p>
-<div class="highlight"><pre><span></span><code>touch /srv/comms/element/data/config.json 
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<p>First you need to create a <code>config.json</code>:
+<div class="highlight"><pre><span></span><code>mkdir -p /srv/comms/element/data/
+touch /srv/comms/element/data/config.json 
 </code></pre></div>
-<p>Element supports a variety of settings to configure default servers, behaviour, themes, etc.
-See the <a href="https://github.com/vector-im/element-web/blob/develop/docs/config.md#desktop-app-configuration">configuration docs</a> for more details.</p>
+Element supports a variety of settings to configure default servers, behaviour, themes, etc.<br />
+Checkout the <a href="https://github.com/vector-im/element-web/blob/develop/docs/config.md#desktop-app-configuration">configuration docs</a> for more details.</p>
                 
                   
                     
@@ -843,7 +905,7 @@ See the <a href="https://github.com/vector-im/element-web/blob/develop/docs/conf
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 28, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 29, 2021</span>
     
   </small>
 </div>
@@ -862,6 +924,41 @@ See the <a href="https://github.com/vector-im/element-web/blob/develop/docs/conf
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../matrix/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Matrix
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../jitsi/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Jitsi
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
