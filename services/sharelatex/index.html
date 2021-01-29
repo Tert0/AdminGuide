@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#creating-an-user" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -699,9 +704,36 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ShareLaTeX
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         ShareLaTeX
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-user" class="md-nav__link">
+    Creating an user
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -762,6 +794,35 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-user" class="md-nav__link">
+    Creating an user
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -788,28 +849,28 @@
     <span class="nt">volumes</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/srv/storage/paper/data:/var/lib/sharelatex</span>
     <span class="nt">environment</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">SHARELATEX_APP_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ShareLaTeX</span>
-      <span class="p p-Indicator">-</span> <span class="nt">SHARELATEX_MONGO_URL</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongodb://mongo/sharelatex</span>
-      <span class="p p-Indicator">-</span> <span class="nt">SHARELATEX_REDIS_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
-      <span class="p p-Indicator">-</span> <span class="nt">REDIS_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
-      <span class="p p-Indicator">-</span> <span class="nt">ENABLED_LINKED_FILE_TYPES</span><span class="p">:</span> <span class="s">&#39;url,project_file&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">ENABLE_CONVERSIONS</span><span class="p">:</span> <span class="s">&#39;true&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">EMAIL_CONFIRMATION_DISABLED</span><span class="p">:</span> <span class="s">&#39;true&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">TEXMFVAR</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/lib/sharelatex/tmp/texmf-var</span>
-      <span class="p p-Indicator">-</span> <span class="nt">SHARELATEX_SITE_URL</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://paper.domain.de</span>
-      <span class="p p-Indicator">-</span> <span class="nt">SHARELATEX_NAV_TITLE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ShareLaTeX</span>
-      <span class="p p-Indicator">-</span> <span class="nt">SHARELATEX_LEFT_FOOTER</span><span class="p">:</span> <span class="s">&#39;[]&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">SHARELATEX_RIGHT_FOOTER</span><span class="p">:</span> <span class="s">&#39;[]&#39;</span>
-      <span class="c1">#- SHARELATEX_HEADER_IMAGE_URL: http://somewhere.com/mylogo.png</span>
-      <span class="c1">#- SHARELATEX_EMAIL_FROM_ADDRESS: &quot;team@sharelatex.com&quot;</span>
-      <span class="c1">#- SHARELATEX_EMAIL_SMTP_HOST: smtp.mydomain.com</span>
-      <span class="c1">#- SHARELATEX_EMAIL_SMTP_PORT: 587</span>
-      <span class="c1">#- SHARELATEX_EMAIL_SMTP_SECURE: false</span>
-      <span class="c1">#- SHARELATEX_EMAIL_SMTP_USER:</span>
-      <span class="c1">#- SHARELATEX_EMAIL_SMTP_PASS:</span>
-      <span class="c1">#- SHARELATEX_EMAIL_SMTP_TLS_REJECT_UNAUTH: true</span>
-      <span class="c1">#- SHARELATEX_EMAIL_SMTP_IGNORE_TLS: false</span>
-      <span class="c1">#- SHARELATEX_CUSTOM_EMAIL_FOOTER: &quot;This system is run by department x&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;SHARELATEX_APP_NAME=ShareLaTeX&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;SHARELATEX_MONGO_URL=mongodb://mongo/sharelatex&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;SHARELATEX_REDIS_HOST=redis&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;REDIS_HOST=redis&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;ENABLED_LINKED_FILE_TYPES=url,project_file&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;ENABLE_CONVERSIONS=true&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;EMAIL_CONFIRMATION_DISABLED=true&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;TEXMFVAR=/var/lib/sharelatex/tmp/texmf-var&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;SHARELATEX_SITE_URL=https://paper.domain.de&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;SHARELATEX_NAV_TITLE=ShareLaTeX&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;SHARELATEX_LEFT_FOOTER=[]&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;SHARELATEX_RIGHT_FOOTER=[]&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_HEADER_IMAGE_URL=http://somewhere.com/mylogo.png&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_EMAIL_FROM_ADDRESS=team@sharelatex.com&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_EMAIL_SMTP_HOST=smtp.mydomain.com&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_EMAIL_SMTP_PORT=587&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_EMAIL_SMTP_SECURE=false&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_EMAIL_SMTP_USER=&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_EMAIL_SMTP_PASS=&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_EMAIL_SMTP_TLS_REJECT_UNAUTH=true&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_EMAIL_SMTP_IGNORE_TLS=false&quot;</span>
+      <span class="c1">#- &quot;SHARELATEX_CUSTOM_EMAIL_FOOTER=This system is run by department x&quot;</span>
     <span class="nt">networks</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proxy</span>
@@ -819,7 +880,7 @@
     <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mongo:4.0</span>
     <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
     <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/srv/storage/paper/mongo:/data/db</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;/srv/storage/paper/mongo:/data/db&quot;</span>
     <span class="nt">healthcheck</span><span class="p">:</span>
       <span class="nt">test</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &#39;db.stats().ok&#39; | mongo localhost:27017/test --quiet</span>
       <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10s</span>
@@ -832,7 +893,7 @@
     <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis:5</span>
     <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
     <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/srv/storage/paper/redis:/data</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;/srv/storage/paper/redis:/data&quot;</span>
     <span class="nt">networks</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
 </code></pre></div></p>
@@ -841,25 +902,30 @@
 </div>
 <ol>
 <li>
-<p>Create admin user
-<div class="highlight"><pre><span></span><code>docker-compose exec paper /bin/bash -c &quot;cd /var/www/sharelatex; grunt user:create-admin --email my@email.address&quot;
-</code></pre></div></p>
+<p>Install <code>texlive-full</code></p>
+<div class="admonition warning">
+<p>Due to the fact, that this command will take a couple of house, I suggest you to execute it in a screen session.</p>
+</div>
+<div class="admonition warning">
+<p>The Image will take about 8 gigabytes after installation all additional packages.</p>
+</div>
+<div class="highlight"><pre><span></span><code>screen -AmdS latex-installation <span class="s2">&quot;docker-compose exec paper tlmgr update --self; tlmgr install scheme-full&quot;</span>
+</code></pre></div>
 </li>
 <li>
-<p>Install <code>texlive-full</code>
-<div class="highlight"><pre><span></span><code># you should do this in a screen, cause it will take a couple of hours...
-screen -AmdS latex-installation &#39;docker-compose exec paper tlmgr install scheme-full&#39;
-</code></pre></div></p>
-</li>
-<li>
-<p>Save the current container filesystem as docker image with tag: <code>with-texlive-full</code>
-<div class="highlight"><pre><span></span><code>docker commit -m &quot;installing all latex packages&quot; $(docker-compose ps -q paper) sharelatex/sharelatex:with-texlive-full
-</code></pre></div></p>
+<p>Save the current container filesystem as docker image with tag: <code>with-texlive-full</code></p>
+<div class="highlight"><pre><span></span><code>docker commit -m <span class="s2">&quot;installing all latex packages&quot;</span> <span class="k">$(</span>docker-compose ps -q paper<span class="k">)</span> sharelatex/sharelatex:with-texlive-full
+</code></pre></div>
 </li>
 <li>
 <p>Replace the image tag in your <code>docker-compose.yml</code> from <code>latest</code> to <code>with-texlive-full</code></p>
 </li>
 </ol>
+<h3 id="creating-an-user">Creating an user<a class="headerlink" href="#creating-an-user" title="Permanent link">&para;</a></h3>
+<p>Now you have to create an admin user by simply running this command:</p>
+<div class="highlight"><pre><span></span><code>docker-compose <span class="nb">exec</span> paper /bin/bash -c <span class="s2">&quot;cd /var/www/sharelatex; grunt user:create-admin --email=my@email.address&quot;</span>
+</code></pre></div>
+<p>Replace <code>my@email.address</code> with your email. You will now be given a password reset link with which you can initially set the password for the admin user.</p>
                 
                   
                     
@@ -868,7 +934,7 @@ screen -AmdS latex-installation &#39;docker-compose exec paper tlmgr install sch
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 12, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 29, 2021</span>
     
   </small>
 </div>
