@@ -907,7 +907,7 @@ Now you can start the service using docker-compose up -d matrix</p>
 </code></pre></div></p>
 <p>Don't forget to start the container after editing the option with <code>docker-compose up -d</code></p>
 <p>Now you can create a user using the command line:
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">docker exec matrix register_new_matrix_user -u USERNAME -p PASSWORD -a -c /data/homeserver.yaml matrix.domain.de</span>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">docker-compose exec matrix register_new_matrix_user -u USERNAME -p PASSWORD -a -c /data/homeserver.yaml https://matrix.domain.de</span>
 </code></pre></div></p>
 <h3 id="using-postgres">Using Postgres<a class="headerlink" href="#using-postgres" title="Permanent link">&para;</a></h3>
 <p>For using postgresql append this configuration to your docker-compose</p>
@@ -948,7 +948,7 @@ Now you can start the service using docker-compose up -d matrix</p>
 </code></pre></div></p>
 <p>After the command is done you will get a password hash as stdout </p>
 <p>After you have generated the password hash you can update the value in the database. First you shoud start a shell in the postgress container with 
-<div class="highlight"><pre><span></span><code>docker-compose <span class="nb">exec</span> matrix_postgresql /bin/bash
+<div class="highlight"><pre><span></span><code>docker-compose <span class="nb">exec</span> postgres /bin/bash
 </code></pre></div>
 Next, you can update the password with the command 
 <div class="highlight"><pre><span></span><code><span class="nv">PGPASSWORD</span><span class="o">=</span>S3cr3T <span class="se">\</span>
@@ -965,7 +965,7 @@ Next, you can update the password with the command
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 28, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 30, 2021</span>
     
   </small>
 </div>
