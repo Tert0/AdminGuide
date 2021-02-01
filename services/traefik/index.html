@@ -908,7 +908,7 @@
                 <h1 id="traefik">Traefik<a class="headerlink" href="#traefik" title="Permanent link">&para;</a></h1>
 <p>Add the following configuration to your <code>docker-compose.yml</code> in the main stack:
 <div class="highlight"><pre><span></span><code>  <span class="nt">traefik</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;traefik:v2.4&quot;</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">traefik:v2.4</span>
     <span class="nt">command</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;--api.insecure=true&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;--providers.docker=true&quot;</span>
@@ -923,9 +923,7 @@
       <span class="p p-Indicator">-</span> <span class="s">&quot;--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json&quot;</span>
       <span class="c1">#- &quot;--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;--providers.file.filename=/configs/dynamic.yml&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;--log.format=json&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;--log.level=DEBUG&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;--log.filePath=/logs/traefik.log&quot;</span>
+      <span class="c1">#- &quot;--log.level=DEBUG&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;--accesslog=true&quot;</span>
     <span class="nt">labels</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;traefik.enable=true&quot;</span>
@@ -937,9 +935,7 @@
     <span class="nt">ports</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;80:80&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;443:443&quot;</span>
-    <span class="nt">env_file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.traefik.env</span>
     <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;/srv/main/traefik/logs:/logs&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;/srv/main/traefik/letsencrypt:/letsencrypt&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;/srv/main/traefik/dynamic.yml:/configs/dynamic.yml&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;/etc/localtime:/etc/localtime:ro&quot;</span>
@@ -962,16 +958,10 @@
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305</span>
-        <span class="c1"># not improving ssllabs score (you just get A not A+)</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLS_FALLBACK_SCSV</span>
 </code></pre></div></p>
 <p>You also need a webserver for static content e.g. your <a href="https://github.com/felbinger/AdminGuide/tree/master/error_pages">error pages</a>: 
 <div class="highlight"><pre><span></span><code>  <span class="nt">static</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx:stable-alpine</span>
     <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
     <span class="nt">labels</span><span class="p">:</span>
       <span class="c1"># BASIC CONFIGURATION</span>
@@ -1098,7 +1088,7 @@ htpasswd -c /srv/main/traefik/webfiles.htpasswd -c &lt;username&gt;
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 24, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 1, 2021</span>
     
   </small>
 </div>
