@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://felbinger.github.io/AdminGuide/services/matrix/">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
     
     
       
@@ -681,6 +681,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#federation" class="md-nav__link">
+    Federation
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -856,6 +863,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#federation" class="md-nav__link">
+    Federation
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -896,9 +910,9 @@
 Befor starting this container you need to generate a configuration file. This command generates a <code>homeserver.yaml</code> configuartion file under /srv/comms/matrix
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">docker run -it --rm -v &quot;/srv/comms/matrix/data:/data&quot; -e &quot;SYNAPSE_SERVER_NAME=matrix.domain.de&quot; -e &quot;SYNAPSE_REPORT_STATS=no&quot; matrixdotorg/synapse:latest generate</span>
 </code></pre></div>
-You have to specify the domain of the service using the SYNAPSE_SERVER_NAME environment variable. You also can enable anonymous statistics reporting by setting sthe SYNAPSE_REPORT_STATS to yes</p>
+You have to specify the domain of the service using the SYNAPSE_SERVER_NAME environment variable. You also can enable anonymous statistics reporting by setting sthe SYNAPSE_REPORT_STATS to yes.</p>
 <p>After the command is done you can find the homeserver.yaml configurationfile in the data folder. 
-Now you can start the service using docker-compose up -d matrix</p>
+Now you can start the service using docker-compose up -d matrix.</p>
 <h3 id="register-a-new-user">Register a new user<a class="headerlink" href="#register-a-new-user" title="Permanent link">&para;</a></h3>
 <p>You can enable the registration in your <code>homeserver.yaml</code> file:
 <div class="highlight"><pre><span></span><code><span class="nn">...</span>
@@ -946,8 +960,8 @@ Now you can start the service using docker-compose up -d matrix</p>
 <p>If you want to reset the password run 
 <div class="highlight"><pre><span></span><code>docker-compose <span class="nb">exec</span> -u www-data matrix hash_password -p PASSWORD
 </code></pre></div></p>
-<p>After the command is done you will get a password hash as stdout </p>
-<p>After you have generated the password hash you can update the value in the database. First you shoud start a shell in the postgress container with 
+<p>After the command is done you will get a password hash as stdout. </p>
+<p>Once you have generated the password hash you can update the value in the database. First start a shell in the postgress container with. 
 <div class="highlight"><pre><span></span><code>docker-compose <span class="nb">exec</span> postgres /bin/bash
 </code></pre></div>
 Next, you can update the password with the command 
@@ -956,6 +970,12 @@ Next, you can update the password with the command
   <span class="s2">&quot;UPDATE users SET password_hash=&#39;\$2a\$12</span><span class="nv">$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><span class="s2">&#39; \</span>
 <span class="s2">  WHERE name=&#39;@test:test.com&#39;;&quot;</span>
 </code></pre></div></p>
+<h3 id="federation">Federation<a class="headerlink" href="#federation" title="Permanent link">&para;</a></h3>
+<p>To enable cross-server communication you need to set an SRV DNS record.</p>
+<div class="highlight"><pre><span></span><code>;; SRV Records
+_matrix._tcp.matrix.domain.de.    1    IN    SRV    10 5 443 matrix.domain.de.
+</code></pre></div>
+<p><img alt="DNS configuration" loading="lazy" src="../../img/services/matrix-dns.jpg" /></p>
 <p>Note You can also host your own Matrix WebClient. <a href="../element/">Host your own Matrix WebClient </a></p>
                 
                   
@@ -965,7 +985,7 @@ Next, you can update the password with the command
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 30, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 1, 2021</span>
     
   </small>
 </div>
