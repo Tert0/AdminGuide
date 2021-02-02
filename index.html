@@ -1070,8 +1070,8 @@ The DBM creates the backup over the network, so it can't use a user which is lim
 <ul>
 <li><a href="https://mariadb.com/kb/en/create-user/">MariaDB</a>
   <div class="highlight"><pre><span></span><code><span class="c1"># example for mariadb (you need SELECT and LOCK TABLES permissions)</span>
-$ sudo docker-compose <span class="nb">exec</span> mariadb <span class="s1">&#39;mysql -u root -pSECRET_PASSWORD&#39;</span>
-mariadb&gt; CREATE USER <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED BY <span class="s1">&#39;SECRET_PASSWORD_FOR_BACKUP&#39;</span><span class="p">;</span>
+$ sudo docker-compose <span class="nb">exec</span> mariadb mysql -u root -pS3cr3T
+mariadb&gt; CREATE USER <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;%&#39;</span> IDENTIFIED BY <span class="s1">&#39;secret_password_for_backup_user&#39;</span><span class="p">;</span>
 mariadb&gt; GRANT SELECT, LOCK TABLES ON mysql.* TO <span class="s1">&#39;backup&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 <span class="c1"># add privileges to all databases that you want to backup!</span>
 mariadb&gt; FLUSH PRIVILEGES<span class="p">;</span>
@@ -1086,6 +1086,48 @@ mariadb&gt; EXIT<span class="p">;</span>
 </code></pre></div></p>
 <h3 id="borg-backup">Borg Backup<a class="headerlink" href="#borg-backup" title="Permanent link">&para;</a></h3>
 <p>Like I mentioned above, I'm currently using borg for file backups. Checkout the <a href="https://borgbackup.readthedocs.io/en/stable/#easy-to-use">official documentation</a></p>
+<p>I created a script to perform the backups:
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">export</span> <span class="nv">BORG_PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;&lt;your_borg_repository_passphrase&gt;&quot;</span>
+
+<span class="c1"># date in format: YYYY-MM-DD_HH-MM round to 15 minutes blocks</span>
+<span class="nv">DATE</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&quot;%Y-%m-%d_%H&quot;</span><span class="k">)</span>-<span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>date +%M<span class="k">)</span><span class="s2"> - (</span><span class="k">$(</span>date +%M<span class="k">)</span><span class="s2">%15)&quot;</span> <span class="p">|</span> bc<span class="k">)</span>
+
+<span class="nv">PATHS</span><span class="o">=(</span>
+  <span class="s2">&quot;/srv/&quot;</span>
+  <span class="s2">&quot;/home/admin/&quot;</span>
+  <span class="s2">&quot;/root/&quot;</span>
+  <span class="s2">&quot;/etc/ssh/sshd_config&quot;</span>
+  <span class="s2">&quot;/etc/telegraf/telegraf.conf&quot;</span>
+<span class="o">)</span>
+
+borg create --stats --progress -C lzma,5 /home/borg::<span class="si">${</span><span class="nv">DATE</span><span class="si">}</span> <span class="si">${</span><span class="nv">PATHS</span><span class="p">[@]</span><span class="si">}</span>
+</code></pre></div></p>
+<p>The script is being executed by a crontab every night:
+<div class="highlight"><pre><span></span><code># run borg backup at 4 am
+0 4 * * * /bin/bash /root/backup.sh &gt;/dev/null 2&gt;&amp;1
+</code></pre></div></p>
+<p>I also created a script to pack the whole borg repository into a tar file:
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">export</span> <span class="nv">BORG_PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;&lt;your_borg_repository_passphrase&gt;&quot;</span>
+<span class="nv">latest</span><span class="o">=</span><span class="k">$(</span>borg list /home/borg <span class="p">|</span> tail -1 <span class="p">|</span> cut -d <span class="s2">&quot; &quot;</span> -f <span class="m">1</span><span class="k">)</span>
+
+<span class="c1"># extract last full backup from repository</span>
+<span class="c1">#borg export-tar --progress &quot;/home/borg::${latest}&quot; &quot;/home/morpheus/${latest}.tar&quot;</span>
+
+<span class="c1"># validate that bork is not in use</span>
+<span class="k">while</span> <span class="o">[[</span> -n <span class="k">$(</span>pidof -x <span class="k">$(</span>which borg<span class="k">))</span> <span class="o">]]</span><span class="p">;</span> <span class="k">do</span>
+  sleep <span class="m">60</span>
+<span class="k">done</span>
+
+<span class="c1"># pack backup repository</span>
+tar -cvf /home/user/backup_repository.tar /home/borg
+
+chown user:user /home/user/backup_repository.tar
+chmod <span class="m">664</span> /home/user/backup_repository.tar
+</code></pre></div></p>
                 
                   
                     
