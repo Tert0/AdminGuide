@@ -952,7 +952,7 @@ mkdir -p /home/admin/<span class="o">{</span>services,images<span class="o">}</s
 docker network inspect <span class="si">${</span><span class="nv">name</span><span class="si">}</span> &gt;/dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="se">\</span>
 docker network create --subnet <span class="m">192</span>.168.110.0/24 jitsi
 </code></pre></div></p>
-<p>Afterwars you can download the required files from the <a href="https://github.com/jitsi/docker-jitsi-meet">jitsi/docker-jitsi-meet</a> github repository
+<p>Afterwards you can download the required files from the <a href="https://github.com/jitsi/docker-jitsi-meet">jitsi/docker-jitsi-meet</a> github repository
 <div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/jitsi/docker-jitsi-meet/master/docker-compose.yml -O /home/admin/services/jitsi/docker-compose.yml
 wget https://raw.githubusercontent.com/jitsi/docker-jitsi-meet/master/env.example -O /home/admin/services/jitsi/.env
 
@@ -963,7 +963,7 @@ curl https://raw.githubusercontent.com/jitsi/docker-jitsi-meet/master/gen-passwo
 # change configuration directory
 sed -i &#39;s|CONFIG=.*|CONFIG=/srv/jitsi|g&#39; .env
 </code></pre></div></p>
-<p>Afterwards you may configure the .env file.</p>
+<p>Next step is to configure the .env file.</p>
 <h2 id="use-traefik">Use Traefik<a class="headerlink" href="#use-traefik" title="Permanent link">&para;</a></h2>
 <p>Modify web services:</p>
 <ul>
