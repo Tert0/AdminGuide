@@ -890,7 +890,7 @@
                 <p>I tested a lot of prebuild docker images and I came to the conclusion that the one from <code>osixia/openldap:1.4.0</code> works best.
 Unfortunately neither the <a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt hashing algorithm</a> nor the <a href="https://en.wikipedia.org/wiki/PBKDF2">PBKDF2 hashing algorithm</a> is being support.
 So, we are going to use osixia's image as base, and add the bcrypt hashing algorithm (checkout <a href="https://github.com/howardlau1999/openldap-bcrypt-docker">howardlau1999/openldap-bcrypt-docker</a>).</p>
-<p>I like to combind every service with a administrative webinterface.<br />
+<p>I like to combine every service with a administrative webinterface.<br />
 <s>I use phpldapadmin which is also available from osixia: <a href="https://github.com/osixia/docker-phpLDAPadmin"><code>osixia/docker-phpLDAPadmin</code></a>.
 Today's version of phpldapadmin from osixia is 1.2.5, but there is version 1.2.6.2 (which supports bcrypt), so let's clone also this git repository to build the image with the correct version of phpldapadmin.</s>  </p>
 <p>A friend of mine, who's also supporting me with the admin guide, has build a custom phpldapadmin image, which only supports secure hashing algorithms and is based on a small alpine image. 
@@ -963,7 +963,7 @@ ldapadd -x -D <span class="s1">&#39;cn=admin,dc=domain,dc=de&#39;</span> -w<span
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 29, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2021</span>
     
   </small>
 </div>
