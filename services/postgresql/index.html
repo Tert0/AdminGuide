@@ -888,12 +888,14 @@
                   <h1>PostgreSQL</h1>
                 
                 <h2 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h2>
-<p><a href="https://hub.docker.com/_/postgres">postgres documentation</a>
+<p><a href="https://hub.docker.com/_/postgres">postgres documentation</a></p>
+<p>You can generate a database by setting the commented out environment variables.
 <div class="highlight"><pre><span></span><code>  <span class="nt">postgresql</span><span class="p">:</span>
     <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
     <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
     <span class="nt">environment</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;POSTGRES_PASSWORD=S3cr3T&quot;</span>
+      <span class="c1">#- &quot;POSTGRES_DB=app&quot;</span>
     <span class="nt">volumes</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;/srv/main/postgres/transfer:/transfer&quot;</span>
       <span class="p p-Indicator">-</span> <span class="s">&quot;/srv/main/postgres/data:/var/lib/postgresql/data&quot;</span>
@@ -934,7 +936,7 @@ Don't forget to adjust the permissions: <code>chown -R 5050:5050 /srv/main/pgadm
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 29, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2021</span>
     
   </small>
 </div>
