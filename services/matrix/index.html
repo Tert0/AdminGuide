@@ -889,7 +889,7 @@
                 
                   <h1>Matrix</h1>
                 
-                <p>First add this configuration to you <code>docker-compose.yml</code>
+                <p>First add this configuration to your <code>docker-compose.yml</code>
 <div class="highlight"><pre><span></span><code>  <span class="nt">matrix</span><span class="p">:</span>
     <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">matrix</span>
     <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">matrixdotorg/synapse</span>
@@ -907,20 +907,20 @@
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">proxy</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
 </code></pre></div>
-Befor starting this container you need to generate a configuration file. This command generates a <code>homeserver.yaml</code> configuartion file under /srv/comms/matrix
+Before starting this container you need to generate a configuration file. This command generates a <code>homeserver.yaml</code> configuartion file under /srv/comms/matrix
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">docker run -it --rm -v &quot;/srv/comms/matrix/data:/data&quot; -e &quot;SYNAPSE_SERVER_NAME=matrix.domain.de&quot; -e &quot;SYNAPSE_REPORT_STATS=no&quot; matrixdotorg/synapse:latest generate</span>
 </code></pre></div>
 You have to specify the domain of the service using the <code>SYNAPSE_SERVER_NAME</code> environment variable. You also can enable anonymous statistics reporting by setting sthe <code>SYNAPSE_REPORT_STATS</code> to yes.</p>
 <p>After the command is done you can find the homeserver.yaml configurationfile in the data folder. 
-Now you can start the service using docker-compose up -d matrix.</p>
+Now you can start the service using <code>docker-compose up -d matrix</code>.</p>
 <h3 id="register-a-new-user">Register a new user<a class="headerlink" href="#register-a-new-user" title="Permanent link">&para;</a></h3>
-<p>You can enable the registration in your <code>homeserver.yaml</code> file:
+<p>If you want to enable registration via Matrix clients such as element you can enable it in your <code>homeserver.yaml</code> file.
 <div class="highlight"><pre><span></span><code><span class="nn">...</span>
 <span class="nt">enable_registration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nn">...</span>
 </code></pre></div></p>
 <p>Don't forget to start the container after editing the option with <code>docker-compose up -d</code></p>
-<p>Now you can create a user using the command line:
+<p>You can also create a new user from the command line:
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">docker-compose exec matrix register_new_matrix_user -u USERNAME -p PASSWORD -a -c /data/homeserver.yaml https://matrix.domain.de</span>
 </code></pre></div></p>
 <h3 id="using-postgres">Using Postgres<a class="headerlink" href="#using-postgres" title="Permanent link">&para;</a></h3>
@@ -949,7 +949,7 @@ Now you can start the service using docker-compose up -d matrix.</p>
     <span class="nt">cp_min</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
     <span class="nt">cp_max</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
 </code></pre></div>
-<p>By default, a SQL-Lite database is used, so we still need to comment it out.</p>
+<p>By default, a SQLite database is used, so we still need to comment it out.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">#database:</span>
 <span class="c1"># name: sqlite3</span>
 <span class="c1"># args:</span>
