@@ -1115,7 +1115,7 @@ borg create --stats --progress -C lzma,5 /home/borg::<span class="si">${</span><
 <span class="nv">latest</span><span class="o">=</span><span class="k">$(</span>borg list /home/borg <span class="p">|</span> tail -1 <span class="p">|</span> cut -d <span class="s2">&quot; &quot;</span> -f <span class="m">1</span><span class="k">)</span>
 
 <span class="c1"># extract last full backup from repository</span>
-<span class="c1">#borg export-tar --progress &quot;/home/borg::${latest}&quot; &quot;/home/morpheus/${latest}.tar&quot;</span>
+<span class="c1">#borg export-tar --progress &quot;/home/borg::${latest}&quot; &quot;/home/user/${latest}.tar&quot;</span>
 
 <span class="c1"># validate that bork is not in use</span>
 <span class="k">while</span> <span class="o">[[</span> -n <span class="k">$(</span>pidof -x <span class="k">$(</span>which borg<span class="k">))</span> <span class="o">]]</span><span class="p">;</span> <span class="k">do</span>
