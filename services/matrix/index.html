@@ -910,7 +910,7 @@
 Befor starting this container you need to generate a configuration file. This command generates a <code>homeserver.yaml</code> configuartion file under /srv/comms/matrix
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">docker run -it --rm -v &quot;/srv/comms/matrix/data:/data&quot; -e &quot;SYNAPSE_SERVER_NAME=matrix.domain.de&quot; -e &quot;SYNAPSE_REPORT_STATS=no&quot; matrixdotorg/synapse:latest generate</span>
 </code></pre></div>
-You have to specify the domain of the service using the SYNAPSE_SERVER_NAME environment variable. You also can enable anonymous statistics reporting by setting sthe SYNAPSE_REPORT_STATS to yes.</p>
+You have to specify the domain of the service using the <code>SYNAPSE_SERVER_NAME</code> environment variable. You also can enable anonymous statistics reporting by setting sthe <code>SYNAPSE_REPORT_STATS</code> to yes.</p>
 <p>After the command is done you can find the homeserver.yaml configurationfile in the data folder. 
 Now you can start the service using docker-compose up -d matrix.</p>
 <h3 id="register-a-new-user">Register a new user<a class="headerlink" href="#register-a-new-user" title="Permanent link">&para;</a></h3>
@@ -985,7 +985,7 @@ _matrix._tcp.matrix.domain.de.    1    IN    SRV    10 5 443 matrix.domain.de.
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 1, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2021</span>
     
   </small>
 </div>
