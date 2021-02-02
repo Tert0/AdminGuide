@@ -848,7 +848,16 @@
                   <h1>nginx/proxy</h1>
                 
                 <h2 id="jwildernginx-proxy-letsencrypt">jwilder/nginx-proxy + letsencrypt<a class="headerlink" href="#jwildernginx-proxy-letsencrypt" title="Permanent link">&para;</a></h2>
-<p>As far as I know, the development of the <a href="https://github.com/nginx-proxy/nginx-proxy">jwilder/nginx-proxy</a> has been abandoned!</p>
+<div class="admonition info">
+<p>A reverse proxy is a router which binds to the ports <code>80</code> (http) and <code>443</code> (https).
+You can access the configured services by connecting to the proxy (<code>https://domain.tld</code>) with a specific host header, which is going to be evaluated by the proxy.
+But how do you connect to your proxy with this specific host header?
+Due to the fact that you configured your dns to redirect all subdomains to your server you can simply access <code>https://phpmyadmin.domain.tld</code>.
+You will reach the reverse proxy on port 443 with the host header <code>phpmyadmin.domain.tld</code>, after evaluation the proxy will redirect the incomming request to the configured service.</p>
+</div>
+<div class="admonition warning">
+<p>As far as I know, the development of the <a href="https://github.com/nginx-proxy/nginx-proxy">jwilder/nginx-proxy</a> has been abandoned! Use <a href="../traefik/">Traefik</a> instead!</p>
+</div>
 <p>But one thing should be noted: This proxy is not able to bind two diffrent subdomains on two diffrent ports of the same container. So for example: <code>a.domain.tld</code> to port 80 and <code>b.domain.tld</code> to port 8080.
 But I found a solution for this issue: There is a <code>nginx.tmpl</code> with exactly this feature online available.</p>
 <details>
@@ -1286,7 +1295,7 @@ server {
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 31, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2021</span>
     
   </small>
 </div>

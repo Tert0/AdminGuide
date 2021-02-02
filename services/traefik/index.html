@@ -906,6 +906,13 @@
                 
                 
                 <h1 id="traefik">Traefik<a class="headerlink" href="#traefik" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p>A reverse proxy is a router which binds to the ports <code>80</code> (http) and <code>443</code> (https).
+You can access the configured services by connecting to the proxy (<code>https://domain.tld</code>) with a specific host header, which is going to be evaluated by the proxy.
+But how do you connect to your proxy with this specific host header?
+Due to the fact that you configured your dns to redirect all subdomains to your server you can simply access <code>https://phpmyadmin.domain.tld</code>.
+You will reach the reverse proxy on port 443 with the host header <code>phpmyadmin.domain.tld</code>, after evaluation the proxy will redirect the incomming request to the configured service.</p>
+</div>
 <p>Add the following configuration to your <code>docker-compose.yml</code> in the main stack:
 <div class="highlight"><pre><span></span><code>  <span class="nt">traefik</span><span class="p">:</span>
     <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">traefik:v2.4</span>
@@ -1088,7 +1095,7 @@ htpasswd -c /srv/main/traefik/webfiles.htpasswd -c &lt;username&gt;
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 1, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2021</span>
     
   </small>
 </div>

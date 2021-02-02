@@ -965,10 +965,19 @@ sed -i &#39;s|CONFIG=.*|CONFIG=/srv/jitsi|g&#39; .env
 </code></pre></div></p>
 <p>Afterwards you may configure the .env file.</p>
 <h2 id="use-traefik">Use Traefik<a class="headerlink" href="#use-traefik" title="Permanent link">&para;</a></h2>
-<p>Modify web services:
-* remove port forwardings
-* add traefik labels
-* connect network: proxy</p>
+<p>Modify web services:</p>
+<ul>
+  <li>
+    remove port forwardings
+  </li>
+  <li>
+    add traefik labels
+  </li>
+  <li>
+    connect network: proxy
+  </li>
+</ul>
+
 <p>After your changes the web service should look like this:
 <div class="highlight"><pre><span></span><code>    <span class="nt">web</span><span class="p">:</span>
         <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jitsi/web:latest</span>
@@ -996,9 +1005,16 @@ sed -i &#39;s|CONFIG=.*|CONFIG=/srv/jitsi|g&#39; .env
                     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${XMPP_DOMAIN}</span>
 </code></pre></div></p>
 <h2 id="use-ldap-auth-backend">Use LDAP Auth Backend<a class="headerlink" href="#use-ldap-auth-backend" title="Permanent link">&para;</a></h2>
-<p>Modify prosody service:
-* connect network: database
-* configure ldap credentials</p>
+<p>Modify prosody service:</p>
+<ul>
+  <li>
+    connect network: database
+  </li>
+  <li>
+    configure ldap credentials
+  </li>
+</ul>
+
 <p>After your changes the prosody service should look like this:
 <div class="highlight"><pre><span></span><code>    <span class="c1"># XMPP server</span>
     <span class="nt">prosody</span><span class="p">:</span>
@@ -1045,9 +1061,16 @@ sed -i &#39;s|CONFIG=.*|CONFIG=/srv/jitsi|g&#39; .env
 <span class="c1"># ...</span>
 </code></pre></div></p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>All configuration are stored in the <code>/srv/jitsi</code> directory:
-* You can't modify <code>/srv/jitsi/web/config.js</code>, because it will be generated on container start, but you can update the attributes in the .env file
-* You can update the settings of your interface by modifying <code>/srv/jitsi/web/interface_config.js</code></p>
+<p>All configuration are stored in the <code>/srv/jitsi</code> directory:</p>
+<ul>
+  <li>
+    You can't modify `/srv/jitsi/web/config.js`, because it will be generated on container start, but you can update the attributes in the .env file
+  </li>
+  <li>
+    You can update the settings of your interface by modifying `/srv/jitsi/web/interface_config.js`
+  </li>
+</ul>
+
 <h2 id="extend-your-jitsi-instance">Extend your Jitsi instance<a class="headerlink" href="#extend-your-jitsi-instance" title="Permanent link">&para;</a></h2>
 <h3 id="etherpad">Etherpad<a class="headerlink" href="#etherpad" title="Permanent link">&para;</a></h3>
 <p>Etherpad allows you to edit documents collaboratively in real-time.</p>
@@ -1075,7 +1098,7 @@ curl -s <span class="s2">&quot;http://</span><span class="si">${</span><span cla
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 6, 2021</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2021</span>
     
   </small>
 </div>
