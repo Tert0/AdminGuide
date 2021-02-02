@@ -1061,13 +1061,13 @@ sed -i &#39;s|CONFIG=.*|CONFIG=/srv/jitsi|g&#39; .env
 <span class="c1"># ...</span>
 </code></pre></div></p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>All configuration are stored in the <code>/srv/jitsi</code> directory:</p>
+<p>All configurations are stored in the <code>/srv/jitsi</code> directory:</p>
 <ul>
   <li>
-    You can't modify `/srv/jitsi/web/config.js`, because it will be generated on container start, but you can update the attributes in the .env file
+    You can't modify <code>/srv/jitsi/web/config.js</code>, because it will be regenerated on container start, but you can update the attributes in the .env file
   </li>
   <li>
-    You can update the settings of your interface by modifying `/srv/jitsi/web/interface_config.js`
+    You can update the settings of your interface by modifying <code>/srv/jitsi/web/interface_config.js</code>
   </li>
 </ul>
 
